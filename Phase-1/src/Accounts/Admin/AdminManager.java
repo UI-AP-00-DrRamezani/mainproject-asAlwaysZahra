@@ -1,14 +1,17 @@
 package Accounts.Admin;
 
 import Accounts.Account;
+import Accounts.ChangeRequest;
+import Accounts.Seller.Seller;
+import Accounts.Seller.SellerManager;
 
 import java.util.ArrayList;
 
 public class AdminManager {
 
     static ArrayList<Account> allUsers = new ArrayList<>();
-    //static ArrayList<Seller> sellerAddRequests = new ArrayList<>();
-    //static ArrayList<Seller> SellerChangeRequests = new ArrayList<>();
+    public static ArrayList<Seller> sellerAddRequests = new ArrayList<>();
+    public static ArrayList<ChangeRequest> editInfoRequests = new ArrayList<>();
     //static ArrayList<Product> productAddRequests = new ArrayList<>();
     //static ArrayList<Product> productChangeRequests = new ArrayList<>();
 
@@ -53,4 +56,28 @@ public class AdminManager {
         return adminModel;
     }
     // -----------------------------------------------------------------------------
+    public static boolean availableUsername(String username) {
+        for (Account acc: allUsers)
+            if (username.equals(acc.getUsername()))
+                return false;
+        return true;
+    }
+    // -----------------------------------------------------------------------------
+    public void acceptSeller(Seller seller) {
+        allUsers.add(seller);
+        SellerManager.allSellers.add(seller);
+    }
+    // -----------------------------------------------------------------------------
+    public void acceptChange(ChangeRequest request) {
+        if (request.getNewInfo() instanceof Seller) {
+            request.getOldInfo().setUsername(request.getNewInfo().getUsername());
+            request.getOldInfo().setFirstName(request.getNewInfo().getFirstName());
+            request.getOldInfo().setLastName(request.getNewInfo().getLastName());
+            request.getOldInfo().setEmail(request.getNewInfo().getEmail());
+            request.getOldInfo().setPhoneNumber(request.getNewInfo().getPhoneNumber());
+            request.getOldInfo().setPassword(request.getNewInfo().getPassword());
+            ((Seller) request.getOldInfo()).setCompany(((Seller) request.getNewInfo()).getCompany());
+        }
+        //else if (newInfo instanceof Customer) {} !!!!!!!!!!!!!!!!!!!!!!!
+    }
 }
