@@ -6,6 +6,7 @@ import Accounts.Customer.Customer;
 import Accounts.Customer.CustomerManager;
 import Accounts.Seller.Seller;
 import Accounts.Seller.SellerManager;
+import Products.Comment;
 
 import java.util.ArrayList;
 
@@ -14,6 +15,7 @@ public class AdminManager {
     public static ArrayList<Account> allUsers = new ArrayList<>();
     public static ArrayList<Seller> sellerAddRequests = new ArrayList<>();
     public static ArrayList<ChangeRequest> editInfoRequests = new ArrayList<>();
+    public static ArrayList<Comment> comments = new ArrayList<>();
     //static ArrayList<Product> productAddRequests = new ArrayList<>();
     //static ArrayList<Product> productChangeRequests = new ArrayList<>();
 
