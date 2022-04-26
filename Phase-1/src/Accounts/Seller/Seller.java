@@ -19,12 +19,12 @@ public class Seller extends Account {
     @Override
     public String toString() {
         return "Seller {" +
-                "username: " + this.getUsername() + " - " +
-                ", name: " + this.getFirstName() + " " + this.getLastName() + " - " +
-                ", company: " + this.company + " - " +
-                ", email: " + this.getEmail() + " - " +
-                ", phone number: " + this.getPhoneNumber() + " - " +
-                ", password: " + this.getPassword() +
+                "username: " + this.getUsername() + '\'' +
+                ", name: " + this.getFirstName() + " " + this.getLastName() + '\'' +
+                ", company: " + this.company + '\'' +
+                ", email: " + this.getEmail() + '\'' +
+                ", phone number: " + this.getPhoneNumber() + '\'' +
+                ", password: " + this.getPassword() + '\'' +
                 " }" ;
     }
 

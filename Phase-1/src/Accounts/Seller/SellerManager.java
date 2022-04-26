@@ -14,13 +14,14 @@ public class SellerManager {
     public boolean addSeller(String username, String firstName, String lastName,
                                     String email, String phoneNumber, String password, String company)
     {
-
+        // check username
         if (AdminManager.availableUsername(username)) {
             AdminManager.sellerAddRequests.add(new Seller(username, firstName, lastName,
                     email, phoneNumber, password, company));
             return true;
 
         } else {
+            // if username is unavailable
             return false;
         }
     }
@@ -58,4 +59,7 @@ public class SellerManager {
         return sellerModel;
     }
     // -----------------------------------------------------------------------------
+    public void setSellerModel(Seller model) {
+        sellerModel = model;
+    }
 }

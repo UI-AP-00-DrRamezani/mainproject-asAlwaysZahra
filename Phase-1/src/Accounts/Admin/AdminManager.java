@@ -2,6 +2,8 @@ package Accounts.Admin;
 
 import Accounts.Account;
 import Accounts.ChangeRequest;
+import Accounts.Customer.Customer;
+import Accounts.Customer.CustomerManager;
 import Accounts.Seller.Seller;
 import Accounts.Seller.SellerManager;
 
@@ -9,7 +11,7 @@ import java.util.ArrayList;
 
 public class AdminManager {
 
-    static ArrayList<Account> allUsers = new ArrayList<>();
+    public static ArrayList<Account> allUsers = new ArrayList<>();
     public static ArrayList<Seller> sellerAddRequests = new ArrayList<>();
     public static ArrayList<ChangeRequest> editInfoRequests = new ArrayList<>();
     //static ArrayList<Product> productAddRequests = new ArrayList<>();
@@ -33,7 +35,11 @@ public class AdminManager {
             if (username.equals(acc.getUsername())) {
                 found = true;
                 allUsers.remove(acc);
-                // remove from sellers and customers list !!!!!!!!!!!!!!!!!!
+                // remove from sellers and customers list
+                if (acc instanceof Seller)
+                    SellerManager.allSellers.remove(acc);
+                if (acc instanceof Customer)
+                    CustomerManager.allCustomers.remove(acc);
             }
         return found;
     }
@@ -69,15 +75,16 @@ public class AdminManager {
     }
     // -----------------------------------------------------------------------------
     public void acceptChange(ChangeRequest request) {
+
+        request.getOldInfo().setUsername(request.getNewInfo().getUsername());
+        request.getOldInfo().setFirstName(request.getNewInfo().getFirstName());
+        request.getOldInfo().setLastName(request.getNewInfo().getLastName());
+        request.getOldInfo().setEmail(request.getNewInfo().getEmail());
+        request.getOldInfo().setPhoneNumber(request.getNewInfo().getPhoneNumber());
+        request.getOldInfo().setPassword(request.getNewInfo().getPassword());
+
         if (request.getNewInfo() instanceof Seller) {
-            request.getOldInfo().setUsername(request.getNewInfo().getUsername());
-            request.getOldInfo().setFirstName(request.getNewInfo().getFirstName());
-            request.getOldInfo().setLastName(request.getNewInfo().getLastName());
-            request.getOldInfo().setEmail(request.getNewInfo().getEmail());
-            request.getOldInfo().setPhoneNumber(request.getNewInfo().getPhoneNumber());
-            request.getOldInfo().setPassword(request.getNewInfo().getPassword());
             ((Seller) request.getOldInfo()).setCompany(((Seller) request.getNewInfo()).getCompany());
         }
-        //else if (newInfo instanceof Customer) {} !!!!!!!!!!!!!!!!!!!!!!!
     }
 }
