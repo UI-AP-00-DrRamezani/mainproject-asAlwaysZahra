@@ -1,6 +1,7 @@
 package Accounts.Seller;
 
 import Accounts.Account;
+import Factors.SaleFactor;
 import Products.Product;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 public class Seller extends Account {
 
     private String company;
-    //private final ArrayList<SaleFactor> history = new ArrayList<>();
+    private final ArrayList<SaleFactor> history = new ArrayList<>();
     private final ArrayList<Product> saleProducts = new ArrayList<>();
 
     public Seller(String username, String firstName, String lastName,
@@ -47,5 +48,13 @@ public class Seller extends Account {
 
     public void addProduct(Product product) {
         saleProducts.add(product);
+    }
+
+    public ArrayList<SaleFactor> getHistory() {
+        return history;
+    }
+
+    public void addToHistory(SaleFactor factor) {
+        this.history.add(factor);
     }
 }
