@@ -1,12 +1,15 @@
 package Accounts.Seller;
 
 import Accounts.Account;
+import Products.Product;
+
+import java.util.ArrayList;
 
 public class Seller extends Account {
 
     private String company;
     //private final ArrayList<SaleFactor> history = new ArrayList<>();
-    //private final ArrayList<Product> saleProducts = new ArrayList<>();
+    private final ArrayList<Product> saleProducts = new ArrayList<>();
 
     public Seller(String username, String firstName, String lastName,
                   String email, String phoneNumber, String password, String company)
@@ -18,14 +21,14 @@ public class Seller extends Account {
 
     @Override
     public String toString() {
-        return "Seller {" +
-                "username: " + this.getUsername() + '\'' +
-                ", name: " + this.getFirstName() + " " + this.getLastName() + '\'' +
-                ", company: " + this.company + '\'' +
-                ", email: " + this.getEmail() + '\'' +
-                ", phone number: " + this.getPhoneNumber() + '\'' +
-                ", password: " + this.getPassword() + '\'' +
-                " }" ;
+        return "Seller{" +
+                "username='" + this.getUsername() + '\'' +
+                ", name='" + this.getFirstName() + " " + this.getLastName() + '\'' +
+                ", company='" + this.company + '\'' +
+                ", email='" + this.getEmail() + '\'' +
+                ", phoneNumber='" + this.getPhoneNumber() + '\'' +
+                ", password='" + this.getPassword() + '\'' +
+                '}';
     }
 
     // Getters and Setters ================================================
@@ -36,5 +39,13 @@ public class Seller extends Account {
 
     public void setCompany(String company) {
         this.company = company;
+    }
+
+    public ArrayList<Product> getSaleProducts() {
+        return saleProducts;
+    }
+
+    public void addProduct(Product product) {
+        saleProducts.add(product);
     }
 }

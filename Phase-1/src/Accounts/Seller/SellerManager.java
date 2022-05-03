@@ -2,6 +2,8 @@ package Accounts.Seller;
 
 import Accounts.Admin.AdminManager;
 import Accounts.ChangeRequest;
+import Accounts.ProductRequest;
+import Products.Product;
 
 import java.util.ArrayList;
 
@@ -53,6 +55,16 @@ public class SellerManager {
     // -----------------------------------------------------------------------------
     public void logout() {
         sellerModel = null;
+    }
+    // -----------------------------------------------------------------------------
+    public void addProduct(Product product) {
+        AdminManager.productRequests.add(new ProductRequest(product, null, sellerModel,
+                true, false, false));
+    }
+    // -----------------------------------------------------------------------------
+    public void removeProduct(Product product) {
+        AdminManager.productRequests.add(new ProductRequest(product, null, sellerModel,
+                false, true, false));
     }
     // -----------------------------------------------------------------------------
     public Seller getSellerModel() {

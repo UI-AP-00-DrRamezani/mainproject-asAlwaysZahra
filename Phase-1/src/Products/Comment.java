@@ -21,8 +21,20 @@ public class Comment {
         this.didBuy = didBuy;
     }
 
-    enum Status {
+    public enum Status {
         WAITING, ACCEPTED, UNCONFIRMED
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id='" + id + '\'' +
+                ", user='" + user.getUsername() + '\'' +
+                ", product='" + product.getName() + '\'' +
+                ", text='" + text + '\'' +
+                ", status='" + stat + '\'' +
+                ", didBuy='" + didBuy + '\'' +
+                '}';
     }
 
     // Getters and Setters ================================================

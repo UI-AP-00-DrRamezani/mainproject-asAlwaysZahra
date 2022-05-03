@@ -4,9 +4,11 @@ import Accounts.Account;
 import Accounts.ChangeRequest;
 import Accounts.Customer.Customer;
 import Accounts.Customer.CustomerManager;
+import Accounts.ProductRequest;
 import Accounts.Seller.Seller;
 import Accounts.Seller.SellerManager;
 import Products.Comment;
+import Products.ProductManager;
 
 import java.util.ArrayList;
 
@@ -16,8 +18,7 @@ public class AdminManager {
     public static ArrayList<Seller> sellerAddRequests = new ArrayList<>();
     public static ArrayList<ChangeRequest> editInfoRequests = new ArrayList<>();
     public static ArrayList<Comment> comments = new ArrayList<>();
-    //static ArrayList<Product> productAddRequests = new ArrayList<>();
-    //static ArrayList<Product> productChangeRequests = new ArrayList<>();
+    public static ArrayList<ProductRequest> productRequests = new ArrayList<>();
 
     private Admin adminModel;
     // Methods ---------------------------------------------------------------------
@@ -60,10 +61,6 @@ public class AdminManager {
         adminModel = null;
     }
     // -----------------------------------------------------------------------------
-    public Admin getAdminModel() {
-        return adminModel;
-    }
-    // -----------------------------------------------------------------------------
     public static boolean availableUsername(String username) {
         for (Account acc: allUsers)
             if (username.equals(acc.getUsername()))
@@ -88,5 +85,32 @@ public class AdminManager {
         if (request.getNewInfo() instanceof Seller) {
             ((Seller) request.getOldInfo()).setCompany(((Seller) request.getNewInfo()).getCompany());
         }
+    }
+    // -----------------------------------------------------------------------------
+    public void acceptComment(Comment comment) {
+        comment.getProduct().addComment(comment);
+        comment.setStat(Comment.Status.ACCEPTED);
+    }
+    // -----------------------------------------------------------------------------
+    public void rejectComment(Comment comment) {
+        comment.setStat(Comment.Status.UNCONFIRMED);
+    }
+    // -----------------------------------------------------------------------------
+    public void acceptAddProduct(ProductRequest request) {
+        ProductManager.addProduct(request.getProduct());
+        request.getSeller().addProduct(request.getProduct());
+        request.getProduct().setSeller(request.getSeller());
+        productRequests.remove(request);
+    }
+    // -----------------------------------------------------------------------------
+    public void acceptRemoveProduct(ProductRequest request) {
+        ProductManager.removeProduct(request.getProduct());
+        request.getSeller().getSaleProducts().remove(request.getProduct());
+        productRequests.remove(request);
+    }
+    // -----------------------------------------------------------------------------
+    public void acceptChangeProduct(ProductRequest request) {
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        productRequests.remove(request);
     }
 }

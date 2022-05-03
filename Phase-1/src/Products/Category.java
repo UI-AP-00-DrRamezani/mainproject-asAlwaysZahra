@@ -14,6 +14,13 @@ public class Category {
         allCategories.add(this);
     }
 
+    @Override
+    public String toString() {
+        return "Category{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
     // Getters and Setters ================================================
 
     public void setName(String name) {

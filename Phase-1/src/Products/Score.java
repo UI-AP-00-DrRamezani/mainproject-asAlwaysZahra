@@ -14,6 +14,15 @@ public class Score {
         this.product = product;
     }
 
+    @Override
+    public String toString() {
+        return "Score {" +
+                "user='" + user.getUsername() + '\'' +
+                ", score='" + score + '\'' +
+                ", product='" + product.getName() + '\'' +
+                " }";
+    }
+
     // Getters and Setters ================================================
 
     public Customer getUser() {
