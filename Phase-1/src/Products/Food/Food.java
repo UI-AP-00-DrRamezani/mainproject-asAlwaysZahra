@@ -1,7 +1,6 @@
 package Products.Food;
 
 import Products.Category;
-import Products.Garment.Clothe;
 import Products.Product;
 
 import java.util.ArrayList;
