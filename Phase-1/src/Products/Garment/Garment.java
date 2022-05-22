@@ -5,7 +5,7 @@ import Products.Product;
 
 public abstract class Garment extends Product {
 
-    public static Category garment = new Category("garment");
+    public static Category garmentCategory = new Category("garment");
 
     private String country;
     private String material;

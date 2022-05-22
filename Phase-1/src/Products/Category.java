@@ -6,8 +6,8 @@ public class Category {
     public static ArrayList<Category> allCategories = new ArrayList<>();
 
     private String name;
-    private ArrayList<String> features = new ArrayList<>();
-    private ArrayList<Product> products = new ArrayList<>();
+    private final ArrayList<String> features = new ArrayList<>();
+    private final ArrayList<Product> products = new ArrayList<>();
 
     public Category(String name) {
         this.name = name;
@@ -41,6 +41,10 @@ public class Category {
 
     public void addProduct(Product product) {
         this.products.add(product);
+    }
+
+    public void removeProduct(Product product) {
+        this.products.remove(product);
     }
 
     public ArrayList<Product> getProducts() {

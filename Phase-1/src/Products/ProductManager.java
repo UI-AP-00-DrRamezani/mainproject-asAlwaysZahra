@@ -1,5 +1,17 @@
 package Products;
 
+import Products.Digital.Digital;
+import Products.Digital.Laptop;
+import Products.Digital.Mobile;
+import Products.Food.Food;
+import Products.Garment.Clothe;
+import Products.Garment.Garment;
+import Products.Garment.Shoes;
+import Products.Home.HomeThings;
+import Products.Home.Refrigerator;
+import Products.Home.Stove;
+import Products.Home.TV;
+
 import java.util.ArrayList;
 
 public class ProductManager {
@@ -9,11 +21,83 @@ public class ProductManager {
 
     // Methods ---------------------------------------------------------------------
     public static void addProduct(Product product) {
+
         allProducts.add(product);
+
+        // add to related category
+        if (product instanceof Digital) {
+            Digital.digitalCategory.addProduct(product);
+
+            if (product instanceof Laptop)
+                Laptop.laptops.add((Laptop) product);
+
+            if (product instanceof Mobile)
+                Mobile.mobiles.add((Mobile) product);
+
+        } else if (product instanceof Garment) {
+            Garment.garmentCategory.addProduct(product);
+
+            if (product instanceof Shoes)
+                Shoes.shoes.add((Shoes) product);
+
+            if (product instanceof Clothe)
+                Clothe.clothes.add((Clothe) product);
+
+        } else if (product instanceof HomeThings) {
+            HomeThings.homeCategory.addProduct(product);
+
+            if (product instanceof Refrigerator)
+                Refrigerator.refrigerators.add((Refrigerator) product);
+
+            if (product instanceof TV)
+                TV.tvs.add((TV) product);
+
+            if (product instanceof Stove)
+                Stove.stoves.add((Stove) product);
+
+        } else if (product instanceof Food) {
+            Food.foodCategory.addProduct(product);
+        }
     }
     // -----------------------------------------------------------------------------
     public static void removeProduct(Product product) {
+
         allProducts.remove(product);
+
+        // remove from related category
+        if (product instanceof Digital) {
+            Digital.digitalCategory.removeProduct(product);
+
+            if (product instanceof Laptop)
+                Laptop.laptops.remove((Laptop) product);
+
+            if (product instanceof Mobile)
+                Mobile.mobiles.remove((Mobile) product);
+
+        } else if (product instanceof Garment) {
+            Garment.garmentCategory.removeProduct(product);
+
+            if (product instanceof Shoes)
+                Shoes.shoes.remove((Shoes) product);
+
+            if (product instanceof Clothe)
+                Clothe.clothes.remove((Clothe) product);
+
+        } else if (product instanceof HomeThings) {
+            HomeThings.homeCategory.removeProduct(product);
+
+            if (product instanceof Refrigerator)
+                Refrigerator.refrigerators.remove((Refrigerator) product);
+
+            if (product instanceof TV)
+                TV.tvs.remove((TV) product);
+
+            if (product instanceof Stove)
+                Stove.stoves.remove((Stove) product);
+
+        } else if (product instanceof Food) {
+            Food.foodCategory.removeProduct(product);
+        }
     }
     // -----------------------------------------------------------------------------
     public static void calculateAvgRate(Product product) {

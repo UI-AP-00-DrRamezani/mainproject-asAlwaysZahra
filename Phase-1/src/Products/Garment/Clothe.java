@@ -19,7 +19,7 @@ public class Clothe extends Garment {
         this.kind = kind;
     }
 
-    public void changeInfo(String name, String brand, double price, String description,
+    public void editInfo(String name, String brand, double price, String description,
                            String country, String material, String size, ClotheKind kind)
     {
         this.setName(name);

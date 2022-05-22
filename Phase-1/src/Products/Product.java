@@ -14,7 +14,7 @@ public abstract class Product {
     private Seller seller;
     private int number;
     private String description;
-    private ArrayList<Score> scores;
+    private final ArrayList<Score> scores;
     private double avgRate;
     private final ArrayList<Comment> comments;
 
@@ -31,8 +31,7 @@ public abstract class Product {
 
     @Override
     public abstract String toString();
-    public abstract ArrayList<Product> categoryFilter();
-    public abstract String specialFeatures();
+    public abstract ArrayList<Product> categoryFilter(String filter, String feature);
 
     // Getters and Setters ================================================
 
