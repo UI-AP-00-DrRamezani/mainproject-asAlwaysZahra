@@ -1,4 +1,4 @@
-package Accounts;
+package Products;
 
 import Accounts.Seller.Seller;
 import Products.Product;

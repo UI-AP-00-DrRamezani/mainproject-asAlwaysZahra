@@ -4,7 +4,7 @@ import Accounts.Account;
 import Accounts.ChangeRequest;
 import Accounts.Customer.Customer;
 import Accounts.Customer.CustomerManager;
-import Accounts.ProductRequest;
+import Products.ProductRequest;
 import Accounts.Seller.Seller;
 import Accounts.Seller.SellerManager;
 import Products.Comment;

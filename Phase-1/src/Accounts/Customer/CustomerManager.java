@@ -1,6 +1,11 @@
 package Accounts.Customer;
 
 import Accounts.Admin.AdminManager;
+import Factors.BuyFactor;
+import Factors.SaleFactor;
+import Products.Product;
+import Products.ProductManager;
+import Products.Score;
 
 import java.util.ArrayList;
 
@@ -10,6 +15,39 @@ public class CustomerManager {
 
     private Customer customerModel;
     // Methods ---------------------------------------------------------------------
+    public boolean buy() {
+        double sum = 0;
+
+        // calculate overall payment
+        for (Product p: customerModel.getCart())
+            sum += p.getPrice();
+
+        // if credit is not enough
+        if (sum > customerModel.getCredit())
+            return false;
+        else
+            customerModel.setCredit(customerModel.getCredit() - sum);
+
+        // add to history for customer
+        BuyFactor buyFactor = new BuyFactor(sum, customerModel.getCart());
+        customerModel.addToHistory(buyFactor);
+
+        // add sellers of products to buyFactor
+        for (Product p: customerModel.getCart())
+            buyFactor.addSeller(p.getSeller());
+
+        // add to history for seller / decrease number of product
+        for (Product p: customerModel.getCart()) {
+            p.getSeller().addToHistory(new SaleFactor(p.getPrice(), p, customerModel));
+            p.setNumber(p.getNumber()-1);
+        }
+
+        // remove from cart
+        customerModel.getCart().clear();
+
+        return true;
+    }
+    // -----------------------------------------------------------------------------
     public boolean addCustomer(String username, String firstName, String lastName,
                              String email, String phoneNumber, String password, double credit)
     {
@@ -51,6 +89,22 @@ public class CustomerManager {
         customerModel.setCredit(credit);
     }
     // -----------------------------------------------------------------------------
+    public boolean scoring(int productID, int score) {
+
+        // try to find the product in history
+        for (BuyFactor factor : customerModel.getHistory())
+            for (Product p: factor.getProducts())
+                if (p.getId() == productID) {
+                    p.addScore(new Score(customerModel, score, p));
+                    // update avgRate
+                    ProductManager.calculateAvgRate(p);
+                    return true;
+                }
+
+        // if product can not be found in history
+        return false;
+    }
+    // -----------------------------------------------------------------------------
     public ArrayList<Customer> getAllCustomers() {
         return allCustomers;
     }
@@ -65,11 +119,4 @@ public class CustomerManager {
         customerModel = null;
     }
     // -----------------------------------------------------------------------------
-    public Customer getCustomerModel() {
-        return customerModel;
-    }
-    // -----------------------------------------------------------------------------
-    public void setCustomerModel(Customer model) {
-        customerModel = model;
-    }
 }

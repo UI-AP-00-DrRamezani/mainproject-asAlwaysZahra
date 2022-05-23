@@ -13,11 +13,12 @@ public class BuyFactor {
     private final int id;
     private String date;
     private double payment;
-    private ArrayList<Product> products;
-    private ArrayList<Seller> sellers = new ArrayList<>();
+    private final ArrayList<Product> products;
+    private final ArrayList<Seller> sellers = new ArrayList<>();
     private boolean isDelivered;
 
-    public BuyFactor(double payment, ArrayList<Product> products) {
+    public BuyFactor(double payment, ArrayList<Product> products)
+    {
         Date now = new Date();
         SimpleDateFormat ft = new SimpleDateFormat("dd/MM/yyyy");
         this.date = ft.format(now);
