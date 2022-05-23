@@ -27,6 +27,18 @@ public class SaleFactor {
         this.customer = customer;
     }
 
+    @Override
+    public String toString() {
+        return "SaleFactor{" +
+                "id='" + id + '\'' +
+                " ,date='" + date + '\'' +
+                ", price='" + price + '\'' + '\n' +
+                ", product='" + product.toString() + '\'' + '\n' +
+                ", customer='" + customer.toString() + '\'' + '\n' +
+                ", isPosted='" + isPosted + '\'' +
+                '}';
+    }
+
     // Getters and Setters ================================================
 
     public int getId() {

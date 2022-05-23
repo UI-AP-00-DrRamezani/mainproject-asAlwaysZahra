@@ -13,7 +13,7 @@ public class CustomerManager {
 
     public static ArrayList<Customer> allCustomers = new ArrayList<>();
 
-    private Customer customerModel;
+    Customer customerModel;
     // Methods ---------------------------------------------------------------------
     public boolean buy() {
         double sum = 0;

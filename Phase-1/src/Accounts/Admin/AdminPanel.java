@@ -3,18 +3,21 @@ package Accounts.Admin;
 import Accounts.Account;
 import Accounts.ChangeRequest;
 import Accounts.Seller.Seller;
+import Products.Category;
+import Products.Comment;
+import Products.ProductRequest;
 
 import java.util.Scanner;
 
 public class AdminPanel {
     Scanner sc = new Scanner(System.in);
 
-    Admin adminLoggedIn;
     AdminManager manager = new AdminManager();
 
     public void adminMenu() {
 
-        while (adminLoggedIn != null) {
+        while (manager.adminModel != null)
+        {
             System.out.println("--- Admin Panel ---");
             System.out.println("0. Account Information");
             System.out.println("1. Edit Information");
@@ -22,11 +25,12 @@ public class AdminPanel {
             System.out.println("3. Remove a User");
             System.out.println("4. 'Add Seller' Requests");
             System.out.println("5. 'Edit Seller Information' Requests");
-            System.out.println("x. 'Add Product' Requests");
-            System.out.println("x. 'Change Product Information' Requests");
-            System.out.println("x. Comments");
-            System.out.println("x. Categories");
-            System.out.println("x. Add a Category");
+            System.out.println("6. 'Add Product' Requests");
+            System.out.println("7. 'Change Product Information' Requests");
+            System.out.println("8. 'Remove Product' Requests");
+            System.out.println("9. Comments");
+            System.out.println("10. Categories");
+            System.out.println("11. Add a Category");
             System.out.println("-1. Log out");
 
             int number = sc.nextInt();
@@ -35,11 +39,10 @@ public class AdminPanel {
 
                 case -1:
                     manager.logout();
-                    adminLoggedIn = null;
                     return;
 
                 case 0:
-                    System.out.println(adminLoggedIn.toString());
+                    System.out.println(manager.adminModel.toString());
                     break;
 
                 case 1:
@@ -59,42 +62,151 @@ public class AdminPanel {
                     break;
 
                 case 4:
-                    for (Seller request : AdminManager.sellerAddRequests) {
+                    for (Seller request : AdminManager.sellerAddRequests)
+                    {
                         System.out.println(request.toString());
-                        System.out.println("Do you accept this request?\n1. YES\n2. NO");
+                        System.out.println("\nDo you accept this request?\n1. YES\n2. NO");
                         int accept = sc.nextInt();
+
                         if (accept == 1) {
                             manager.acceptSeller(request);
                             System.out.println("Accepted");
+
                         } else if (accept == 2) {
-                            AdminManager.sellerAddRequests.remove(request);
                             System.out.println("Unconfirmed");
                         }
+                        AdminManager.sellerAddRequests.remove(request);
+
                         System.out.println("-----------------------------------");
                     }
                     break;
 
                 case 5:
-                    for (ChangeRequest request : AdminManager.editInfoRequests) {
-                        System.out.println("OLD ACCOUNT INFORMATION");
+                    for (ChangeRequest request : AdminManager.editInfoRequests)
+                    {
+                        System.out.println("-OLD ACCOUNT INFORMATION");
                         System.out.println(request.getOldInfo().toString());
 
                         System.out.println("|||||||||||||||||||||||||||||||||||");
 
-                        System.out.println("NEW ACCOUNT INFORMATION");
+                        System.out.println("-NEW ACCOUNT INFORMATION");
                         System.out.println(request.getNewInfo().toString());
 
-                        System.out.println("Do you accept this request?\n1. YES\n2. NO");
+                        System.out.println("\nDo you accept this request?\n1. YES\n2. NO");
                         int accept = sc.nextInt();
+
                         if (accept == 1) {
                             manager.acceptChange(request);
                             System.out.println("Accepted");
+
                         } else if (accept == 2) {
-                            AdminManager.sellerAddRequests.remove(request);
                             System.out.println("Unconfirmed");
                         }
+                        AdminManager.editInfoRequests.remove(request);
+
                         System.out.println("-----------------------------------");
                     }
+                    break;
+
+                case 6:
+                    for (ProductRequest request : AdminManager.productRequests)
+                    {
+                        if (request.isAdd())
+                        {
+                            System.out.println(request);
+                            System.out.println("\nDo you accept this request?\n1. YES\n2. NO");
+                            int accept = sc.nextInt();
+
+                            if (accept == 1) {
+                                manager.acceptAddProduct(request);
+                                System.out.println("Accepted");
+
+                            } else if (accept == 2) {
+                                System.out.println("Unconfirmed");
+                            }
+                            AdminManager.productRequests.remove(request);
+
+                            System.out.println("-----------------------------------");
+
+                        }
+                    }
+                    break;
+
+                case 7:
+                    for (ProductRequest request : AdminManager.productRequests)
+                    {
+                        if (request.isChange()) {
+                            System.out.println(request);
+                            System.out.println("\nDo you accept this request?\n1. YES\n2. NO");
+                            int accept = sc.nextInt();
+
+                            if (accept == 1) {
+                                manager.acceptEditProduct(request);
+                                System.out.println("Accepted");
+
+                            } else if (accept == 2) {
+                                System.out.println("Unconfirmed");
+                            }
+                            AdminManager.productRequests.remove(request);
+
+                            System.out.println("-----------------------------------");
+                        }
+                    }
+                    break;
+
+                case 8:
+                    for (ProductRequest request : AdminManager.productRequests)
+                    {
+                        if (request.isRemove())
+                        {
+                            System.out.println(request);
+                            System.out.println("\nDo you accept this request?\n1. YES\n2. NO");
+                            int accept = sc.nextInt();
+
+                            if (accept == 1) {
+                                manager.acceptRemoveProduct(request);
+                                System.out.println("Accepted");
+
+                            } else if (accept == 2) {
+                                System.out.println("Unconfirmed");
+                            }
+                            AdminManager.productRequests.remove(request);
+
+                            System.out.println("-----------------------------------");
+                        }
+                    }
+                    break;
+
+                case 9:
+                    for (Comment comment : AdminManager.comments)
+                    {
+                        System.out.println(comment.toString());
+
+                        if (comment.getStat() == Comment.Status.WAITING) {
+                            System.out.println("\nDo you accept this comment?\n1. YES\n2. NO");
+                            int accept = sc.nextInt();
+
+                            if (accept == 1) {
+                                manager.acceptComment(comment);
+                                System.out.println("Accepted");
+
+                            } else if (accept == 2) {
+                                System.out.println("Unconfirmed");
+                            }
+                        }
+
+                        System.out.println("-----------------------------------");
+                    }
+                    break;
+
+                case 10:
+                    for (Category category : Category.allCategories)
+                        System.out.println(category);
+                    break;
+
+                case 11:
+                    System.out.println("Enter category's name");
+                    new Category(sc.next());
                     break;
 
                 default:

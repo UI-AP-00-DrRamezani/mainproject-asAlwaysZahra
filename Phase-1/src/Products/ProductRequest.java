@@ -1,7 +1,6 @@
 package Products;
 
 import Accounts.Seller.Seller;
-import Products.Product;
 
 public class ProductRequest {
 
@@ -22,6 +21,27 @@ public class ProductRequest {
         this.add = add;
         this.remove = remove;
         this.change = change;
+    }
+
+    @Override
+    public String toString() {
+        if (isAdd())
+            return "AddProductRequest{" +
+                    "Product='" + product.toString() + '\'' + '\n' +
+                    "seller='" + seller.toString() + '\'' + '\n' +
+                    '}';
+        if (isChange())
+            return "ChangeProductRequest{" +
+                    "oldProduct='" + oldProduct.toString() + '\'' + '\n' +
+                    "newProduct='" + product.toString() + '\'' + '\n' +
+                    "seller='" + seller.toString() + '\'' + '\n' +
+                    '}';
+        if (isRemove())
+            return "RemoveProductRequest{" +
+                    "Product='" + product.toString() + '\'' + '\n' +
+                    "seller='" + seller.toString() + '\'' + '\n' +
+                    '}';
+        return null;
     }
 
     // Getters and Setters ================================================

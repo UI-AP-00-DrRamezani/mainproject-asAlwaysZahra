@@ -29,6 +29,16 @@ public class BuyFactor {
         // this.isDelivered = isDelivered; ??
     }
 
+    @Override
+    public String toString() {
+        return "BuyFactor{" +
+                "id='" + id + '\'' +
+                " ,date='" + date + '\'' +
+                ", payment='" + payment + '\'' +
+                ", isDelivered='" + isDelivered + '\'' +
+                '}';
+    }
+
     // Getters and Setters ================================================
 
     public int getId() {

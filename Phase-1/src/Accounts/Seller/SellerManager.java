@@ -11,7 +11,7 @@ public class SellerManager {
 
     public static ArrayList<Seller> allSellers = new ArrayList<>();
 
-    private Seller sellerModel;
+    Seller sellerModel;
     // Methods ---------------------------------------------------------------------
     public boolean addSeller(String username, String firstName, String lastName,
                                     String email, String phoneNumber, String password, String company)
@@ -43,10 +43,6 @@ public class SellerManager {
         }
     }
     // -----------------------------------------------------------------------------
-    public ArrayList<Seller> getAllSellers() {
-        return allSellers;
-    }
-    // -----------------------------------------------------------------------------
     public void login(String username, String password) {
         for (Seller s: allSellers)
             if (username.equals(s.getUsername()) && password.equals(s.getPassword()))
@@ -62,13 +58,33 @@ public class SellerManager {
                 true, false, false));
     }
     // -----------------------------------------------------------------------------
-    public void removeProduct(Product product) {
-        AdminManager.productRequests.add(new ProductRequest(product, null, sellerModel,
-                false, true, false));
+    public boolean removeProduct(int productID) {
+
+        // search for product
+        for (Product p : sellerModel.getSaleProducts())
+            if (p.getId() == productID)
+            {
+                AdminManager.productRequests.add(new ProductRequest(p, null, sellerModel,
+                        false, true, false));
+                return true;
+            }
+
+        // if product could not be found
+        return false;
     }
     // -----------------------------------------------------------------------------
-    public void editProduct(Product oldProduct, Product newProduct) {
-        AdminManager.productRequests.add(new ProductRequest(newProduct, oldProduct, sellerModel,
-                false, false, true));
+    public boolean editProduct(int oldProductID, Product newProduct) {
+
+        // search for product
+        for (Product p : sellerModel.getSaleProducts())
+            if (p.getId() == oldProductID)
+            {
+                AdminManager.productRequests.add(new ProductRequest(newProduct, p, sellerModel,
+                        false, false, true));
+                return true;
+            }
+
+        // if product could not be found
+        return false;
     }
 }

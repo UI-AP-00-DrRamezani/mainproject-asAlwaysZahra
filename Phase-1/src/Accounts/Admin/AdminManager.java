@@ -20,7 +20,7 @@ public class AdminManager {
     public static ArrayList<Comment> comments = new ArrayList<>();
     public static ArrayList<ProductRequest> productRequests = new ArrayList<>();
 
-    private Admin adminModel;
+    Admin adminModel;
     // Methods ---------------------------------------------------------------------
     public void editInfo(String username, String firstName, String lastName,
                          String email, String phoneNumber, String password)
@@ -34,18 +34,24 @@ public class AdminManager {
     }
     // -----------------------------------------------------------------------------
     public boolean removeUser(String username) {
-        boolean found = false;
+
+        // finding user
         for (Account acc: allUsers)
-            if (username.equals(acc.getUsername())) {
-                found = true;
+            if (username.equals(acc.getUsername()))
+            {
                 allUsers.remove(acc);
+
                 // remove from sellers and customers list
                 if (acc instanceof Seller)
                     SellerManager.allSellers.remove(acc);
                 if (acc instanceof Customer)
                     CustomerManager.allCustomers.remove(acc);
+
+                return true;
             }
-        return found;
+
+        // username could not be found
+        return false;
     }
     // -----------------------------------------------------------------------------
     public ArrayList<Account> getAllUsers() {
@@ -88,10 +94,6 @@ public class AdminManager {
         }
     }
     // -----------------------------------------------------------------------------
-    public ArrayList<Comment> getComments() {
-        return comments;
-    }
-    // -----------------------------------------------------------------------------
     public void acceptComment(Comment comment) {
         comment.getProduct().addComment(comment);
         comment.setStat(Comment.Status.ACCEPTED);
@@ -114,7 +116,7 @@ public class AdminManager {
         productRequests.remove(request);
     }
     // -----------------------------------------------------------------------------
-    public void acceptChangeProduct(ProductRequest request) {
+    public void acceptEditProduct(ProductRequest request) {
         ProductManager.editProduct(request.getOldProduct(), request.getProduct());
         productRequests.remove(request);
     }
