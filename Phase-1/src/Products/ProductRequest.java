@@ -26,18 +26,18 @@ public class ProductRequest {
     @Override
     public String toString() {
         if (isAdd())
-            return "AddProductRequest{" +
+            return "AddProductRequest{" + '\n' +
                     "Product='" + product.toString() + '\'' + '\n' +
                     "seller='" + seller.toString() + '\'' + '\n' +
                     '}';
         if (isChange())
-            return "ChangeProductRequest{" +
+            return "ChangeProductRequest{" + '\n' +
                     "oldProduct='" + oldProduct.toString() + '\'' + '\n' +
                     "newProduct='" + product.toString() + '\'' + '\n' +
                     "seller='" + seller.toString() + '\'' + '\n' +
                     '}';
         if (isRemove())
-            return "RemoveProductRequest{" +
+            return "RemoveProductRequest{" + '\n' +
                     "Product='" + product.toString() + '\'' + '\n' +
                     "seller='" + seller.toString() + '\'' + '\n' +
                     '}';

@@ -11,7 +11,7 @@ public class SellerManager {
 
     public static ArrayList<Seller> allSellers = new ArrayList<>();
 
-    Seller sellerModel;
+    public static Seller sellerModel;
     // Methods ---------------------------------------------------------------------
     public boolean addSeller(String username, String firstName, String lastName,
                                     String email, String phoneNumber, String password, String company)
@@ -43,10 +43,16 @@ public class SellerManager {
         }
     }
     // -----------------------------------------------------------------------------
-    public void login(String username, String password) {
+    public static boolean login(String username, String password) {
+
         for (Seller s: allSellers)
             if (username.equals(s.getUsername()) && password.equals(s.getPassword()))
+            {
                 sellerModel = s;
+                return true;
+            }
+
+        return false;
     }
     // -----------------------------------------------------------------------------
     public void logout() {

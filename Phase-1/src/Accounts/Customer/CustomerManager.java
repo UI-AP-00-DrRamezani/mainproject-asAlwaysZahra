@@ -13,7 +13,7 @@ public class CustomerManager {
 
     public static ArrayList<Customer> allCustomers = new ArrayList<>();
 
-    Customer customerModel;
+    public static Customer customerModel;
     // Methods ---------------------------------------------------------------------
     public boolean buy() {
         double sum = 0;
@@ -86,7 +86,7 @@ public class CustomerManager {
     }
     // -----------------------------------------------------------------------------
     public void increaseCredit(double credit) {
-        customerModel.setCredit(credit);
+        customerModel.setCredit(customerModel.getCredit() + credit);
     }
     // -----------------------------------------------------------------------------
     public boolean scoring(int productID, int score) {
@@ -109,10 +109,16 @@ public class CustomerManager {
         return allCustomers;
     }
     // -----------------------------------------------------------------------------
-    public void login(String username, String password) {
+    public static boolean login(String username, String password) {
+
         for (Customer c: allCustomers)
             if (username.equals(c.getUsername()) && password.equals(c.getPassword()))
+            {
                 customerModel = c;
+                return true;
+            }
+
+        return false;
     }
     // -----------------------------------------------------------------------------
     public void logout() {

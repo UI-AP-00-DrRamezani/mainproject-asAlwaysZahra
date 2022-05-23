@@ -2,19 +2,22 @@ package Accounts.Customer;
 
 import Factors.BuyFactor;
 import Products.Product;
+import UI.MainMenu;
 
 import java.util.Scanner;
 
 public class CustomerPanel {
-    Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
 
-    CustomerManager manager = new CustomerManager();
+    static CustomerManager manager = new CustomerManager();
 
-    public void customerMenu() {
+    public static void customerMenu() {
 
-        while (manager.customerModel != null) {
+        while (CustomerManager.customerModel != null)
+        {
+            System.out.println("\nWelcome Dear " + CustomerManager.customerModel.getFirstName() + " " + CustomerManager.customerModel.getLastName());
             System.out.println("--- Customer Panel ---");
-            System.out.println("+Credit: " + manager.customerModel.getCredit());
+            System.out.println("+Credit: " + CustomerManager.customerModel.getCredit());
             System.out.println("0. Account Information");
             System.out.println("1. Edit Information");
             System.out.println("2. Increase Credit");
@@ -22,18 +25,22 @@ public class CustomerPanel {
             System.out.println("4. Finalize Cart");
             System.out.println("5. Score a Product");
             System.out.println("6. History");
+            System.out.println("-2. Back");
             System.out.println("-1. Log out");
 
             int number = sc.nextInt();
 
-            switch (number) {
+            switch (number)
+            {
+                case -2:
+                    MainMenu.mainMenu();
 
                 case -1:
                     manager.logout();
                     return;
 
                 case 0:
-                    System.out.println(manager.customerModel.toString());
+                    System.out.println(CustomerManager.customerModel.toString());
                     break;
 
                 case 1:
@@ -41,6 +48,10 @@ public class CustomerPanel {
                             "email, phone number and password:");
                     manager.editInfo(sc.next(), sc.next(), sc.next(),
                             sc.next(), sc.next(), sc.next());
+                    System.out.println("""
+
+                            Your request for adding a product was submitted,
+                            please wait for admin confirmation.""");
                     break;
 
                 case 2:
@@ -49,7 +60,7 @@ public class CustomerPanel {
                     break;
 
                 case 3:
-                    for (Product p : manager.customerModel.getCart())
+                    for (Product p : CustomerManager.customerModel.getCart())
                         System.out.println(p.toString());
                     break;
 
@@ -64,17 +75,21 @@ public class CustomerPanel {
 
                 case 5:
                     System.out.println("\nList of products you have bought:\n");
-                    for (BuyFactor factor : manager.customerModel.getHistory())
+                    for (BuyFactor factor : CustomerManager.customerModel.getHistory())
                         for (Product p : factor.getProducts())
                             System.out.println(p);
 
                     System.out.println("\nEnter the productID and a score between 1 and 5: ");
-                    manager.scoring(sc.nextInt(), sc.nextInt());
+
+                    if (manager.scoring(sc.nextInt(), sc.nextInt()))
+                        System.out.println("OK");
+                    else
+                        System.out.println("You did not buy this product");
                     break;
 
                 case 6:
                     System.out.println("\nHistory\n");
-                    for (BuyFactor factor : manager.customerModel.getHistory())
+                    for (BuyFactor factor : CustomerManager.customerModel.getHistory())
                     {
                         System.out.println(factor);
                         System.out.println("Products:");

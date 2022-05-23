@@ -6,49 +6,58 @@ import Accounts.Seller.Seller;
 import Products.Category;
 import Products.Comment;
 import Products.ProductRequest;
+import UI.MainMenu;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AdminPanel {
-    Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
 
-    AdminManager manager = new AdminManager();
+    static AdminManager manager = new AdminManager();
 
-    public void adminMenu() {
+    public static void adminMenu() {
 
-        while (manager.adminModel != null)
+        while (AdminManager.adminModel != null)
         {
+            System.out.println("\nWelcome Dear " + AdminManager.adminModel.getFirstName() + " " + AdminManager.adminModel.getLastName());
             System.out.println("--- Admin Panel ---");
             System.out.println("0. Account Information");
             System.out.println("1. Edit Information");
             System.out.println("2. Show All Users");
             System.out.println("3. Remove a User");
             System.out.println("4. 'Add Seller' Requests");
-            System.out.println("5. 'Edit Seller Information' Requests");
+            System.out.println("5. 'Edit User Information' Requests");
             System.out.println("6. 'Add Product' Requests");
             System.out.println("7. 'Change Product Information' Requests");
             System.out.println("8. 'Remove Product' Requests");
             System.out.println("9. Comments");
             System.out.println("10. Categories");
             System.out.println("11. Add a Category");
+            System.out.println("-2. Back");
             System.out.println("-1. Log out");
 
             int number = sc.nextInt();
 
-            switch (number) {
+            switch (number)
+            {
+                case -2:
+                    MainMenu.mainMenu();
+                    break;
 
                 case -1:
                     manager.logout();
                     return;
 
                 case 0:
-                    System.out.println(manager.adminModel.toString());
+                    System.out.println(AdminManager.adminModel.toString());
                     break;
 
                 case 1:
                     System.out.println("Enter new username, first name, last name,\n" +
                             "email, phone number and password:");
                     manager.editInfo(sc.next(), sc.next(), sc.next(), sc.next(), sc.next(), sc.next());
+                    System.out.println("Information edited successfully");
                     break;
 
                 case 2:
@@ -58,7 +67,10 @@ public class AdminPanel {
 
                 case 3:
                     System.out.println("Enter username:");
-                    manager.removeUser(sc.next());
+                    if (manager.removeUser(sc.next()))
+                        System.out.println("User removed successfully");
+                    else
+                        System.out.println("User doesn't exit");
                     break;
 
                 case 4:
@@ -75,10 +87,9 @@ public class AdminPanel {
                         } else if (accept == 2) {
                             System.out.println("Unconfirmed");
                         }
-                        AdminManager.sellerAddRequests.remove(request);
-
                         System.out.println("-----------------------------------");
                     }
+                    AdminManager.sellerAddRequests.clear();
                     break;
 
                 case 5:
@@ -87,7 +98,7 @@ public class AdminPanel {
                         System.out.println("-OLD ACCOUNT INFORMATION");
                         System.out.println(request.getOldInfo().toString());
 
-                        System.out.println("|||||||||||||||||||||||||||||||||||");
+                        System.out.println("||||||||||||||||||||||||");
 
                         System.out.println("-NEW ACCOUNT INFORMATION");
                         System.out.println(request.getNewInfo().toString());
@@ -102,14 +113,15 @@ public class AdminPanel {
                         } else if (accept == 2) {
                             System.out.println("Unconfirmed");
                         }
-                        AdminManager.editInfoRequests.remove(request);
-
                         System.out.println("-----------------------------------");
                     }
+                    AdminManager.editInfoRequests.clear();
                     break;
 
                 case 6:
-                    for (ProductRequest request : AdminManager.productRequests)
+                    // for error change while iterate
+                    ArrayList<ProductRequest> requests = (ArrayList<ProductRequest>) AdminManager.productRequests.clone();
+                    for (ProductRequest request : requests)
                     {
                         if (request.isAdd())
                         {
@@ -124,16 +136,15 @@ public class AdminPanel {
                             } else if (accept == 2) {
                                 System.out.println("Unconfirmed");
                             }
-                            AdminManager.productRequests.remove(request);
-
                             System.out.println("-----------------------------------");
-
                         }
                     }
+                    AdminManager.productRequests.removeIf(ProductRequest::isAdd);
                     break;
 
                 case 7:
-                    for (ProductRequest request : AdminManager.productRequests)
+                    requests = (ArrayList<ProductRequest>) AdminManager.productRequests.clone();
+                    for (ProductRequest request : requests)
                     {
                         if (request.isChange()) {
                             System.out.println(request);
@@ -147,15 +158,15 @@ public class AdminPanel {
                             } else if (accept == 2) {
                                 System.out.println("Unconfirmed");
                             }
-                            AdminManager.productRequests.remove(request);
-
                             System.out.println("-----------------------------------");
                         }
                     }
+                    AdminManager.productRequests.removeIf(ProductRequest::isChange);
                     break;
 
                 case 8:
-                    for (ProductRequest request : AdminManager.productRequests)
+                    requests = (ArrayList<ProductRequest>) AdminManager.productRequests.clone();
+                    for (ProductRequest request : requests)
                     {
                         if (request.isRemove())
                         {
@@ -170,11 +181,10 @@ public class AdminPanel {
                             } else if (accept == 2) {
                                 System.out.println("Unconfirmed");
                             }
-                            AdminManager.productRequests.remove(request);
-
                             System.out.println("-----------------------------------");
                         }
                     }
+                    AdminManager.productRequests.removeIf(ProductRequest::isRemove);
                     break;
 
                 case 9:
@@ -191,10 +201,10 @@ public class AdminPanel {
                                 System.out.println("Accepted");
 
                             } else if (accept == 2) {
+                                manager.rejectComment(comment);
                                 System.out.println("Unconfirmed");
                             }
                         }
-
                         System.out.println("-----------------------------------");
                     }
                     break;

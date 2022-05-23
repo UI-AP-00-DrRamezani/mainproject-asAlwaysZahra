@@ -1,23 +1,25 @@
 package Accounts.Seller;
 
-import Factors.BuyFactor;
 import Factors.SaleFactor;
 import Products.Digital.*;
 import Products.Food.Food;
 import Products.Garment.*;
 import Products.Home.*;
 import Products.Product;
+import UI.MainMenu;
 
 import java.util.Scanner;
 
 public class SellerPanel {
-    Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
 
-    SellerManager manager = new SellerManager();
+    static SellerManager manager = new SellerManager();
 
-    public void sellerMenu() {
+    public static void sellerMenu() {
 
-        while (manager.sellerModel != null) {
+        while (SellerManager.sellerModel != null)
+        {
+            System.out.println("\nWelcome Dear " + SellerManager.sellerModel.getFirstName() + " " + SellerManager.sellerModel.getLastName());
             System.out.println("--- Seller Panel ---");
             System.out.println("0. Account Information");
             System.out.println("1. Edit Information");
@@ -26,18 +28,22 @@ public class SellerPanel {
             System.out.println("4. Edit Product Information");
             System.out.println("5. Your Products");
             System.out.println("6. History");
+            System.out.println("-2. Back");
             System.out.println("-1. Log out");
 
             int number = sc.nextInt();
 
-            switch (number) {
+            switch (number)
+            {
+                case -2:
+                    MainMenu.mainMenu();
 
                 case -1:
                     manager.logout();
                     return;
 
                 case 0:
-                    System.out.println(manager.sellerModel.toString());
+                    System.out.println(SellerManager.sellerModel.toString());
                     break;
 
                 case 1:
@@ -45,10 +51,14 @@ public class SellerPanel {
                             "email, phone number, password and company:");
                     manager.editInfo(sc.next(), sc.next(), sc.next(),
                             sc.next(), sc.next(), sc.next(), sc.next());
+                    System.out.println("""
+
+                            Your request for adding a product was submitted,
+                            please wait for admin confirmation.""");
                     break;
 
                 case 2:
-                    this.addProduct();
+                    addProduct();
                     break;
 
                 case 3:
@@ -56,8 +66,8 @@ public class SellerPanel {
 
                     if (manager.removeProduct(sc.nextInt()))
                         System.out.println("""
-                        Your request for adding a product was submitted,
-                        please wait for admin confirmation.""");
+                            \nYour request for adding a product was submitted,
+                            please wait for admin confirmation.""");
                     else
                         System.out.println("You dont have this product.");
 
@@ -67,9 +77,9 @@ public class SellerPanel {
                     System.out.println("Enter productID to edit," +
                             "Then enter NEW information for your product.");
 
-                    if (this.editProduct(sc.nextInt()))
+                    if (editProduct(sc.nextInt()))
                         System.out.println("""
-                            Your request for editing a product was submitted,
+                            \nYour request for editing a product was submitted,
                             please wait for admin confirmation.""");
                     else
                         System.out.println("You dont have this product.");
@@ -77,13 +87,13 @@ public class SellerPanel {
                     break;
 
                 case 5:
-                    for (Product p : manager.sellerModel.getSaleProducts())
+                    for (Product p : SellerManager.sellerModel.getSaleProducts())
                         System.out.println(p);
                     break;
 
                 case 6:
                     System.out.println("\nHistory\n");
-                    for (SaleFactor factor : manager.sellerModel.getHistory())
+                    for (SaleFactor factor : SellerManager.sellerModel.getHistory())
                     {
                         System.out.println(factor);
                         System.out.println("-----------------------------------");
@@ -96,7 +106,7 @@ public class SellerPanel {
         }
     }
 
-    public void addProduct() {
+    public static void addProduct() {
 
         System.out.println("Please enter the requested information for the new product");
 
@@ -303,7 +313,7 @@ public class SellerPanel {
                 please wait for admin confirmation.""");
     }
 
-    public boolean editProduct(int oldProduct) {
+    public static boolean editProduct(int oldProduct) {
 
         boolean found = false;
 

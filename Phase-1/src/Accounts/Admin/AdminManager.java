@@ -20,7 +20,7 @@ public class AdminManager {
     public static ArrayList<Comment> comments = new ArrayList<>();
     public static ArrayList<ProductRequest> productRequests = new ArrayList<>();
 
-    Admin adminModel;
+    public static Admin adminModel;
     // Methods ---------------------------------------------------------------------
     public void editInfo(String username, String firstName, String lastName,
                          String email, String phoneNumber, String password)
@@ -58,10 +58,15 @@ public class AdminManager {
         return allUsers;
     }
     // -----------------------------------------------------------------------------
-    public void login(String username, String password) {
+    public static boolean login(String username, String password) {
         if (username.equals(Admin.getAdmin().getUsername()) &&
-            password.equals(Admin.getAdmin().getPassword()))
+                password.equals(Admin.getAdmin().getPassword()))
+        {
             adminModel = Admin.getAdmin();
+            return true;
+        }
+        else
+            return false;
     }
     // -----------------------------------------------------------------------------
     public void logout() {
