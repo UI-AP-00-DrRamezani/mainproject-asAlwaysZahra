@@ -20,6 +20,15 @@ public class Food extends Product {
         this.expDate = expDate;
     }
 
+    public void editInfo(Food newFood)
+    {
+        this.setName(newFood.getName());
+        this.setBrand(newFood.getBrand());
+        this.setPrice(newFood.getPrice());
+        this.setDescription(newFood.getDescription());
+        // dates can not be edited
+    }
+
     public void editInfo(String name, String brand, double price, String description)
     {
         this.setName(name);

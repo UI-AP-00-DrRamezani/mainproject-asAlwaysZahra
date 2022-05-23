@@ -23,6 +23,7 @@ public class ProductManager {
     public static void addProduct(Product product) {
 
         allProducts.add(product);
+        all.addProduct(product);
 
         // add to related category
         if (product instanceof Digital) {
@@ -63,6 +64,7 @@ public class ProductManager {
     public static void removeProduct(Product product) {
 
         allProducts.remove(product);
+        all.removeProduct(product);
 
         // remove from related category
         if (product instanceof Digital) {
@@ -100,6 +102,40 @@ public class ProductManager {
         }
     }
     // -----------------------------------------------------------------------------
+    public static void editProduct(Product oldProduct, Product newProduct) {
+
+        if (oldProduct instanceof Digital) {
+
+            if (oldProduct instanceof Laptop)
+                ((Laptop) oldProduct).editInfo((Laptop) newProduct);
+
+            if (oldProduct instanceof Mobile)
+                ((Mobile) oldProduct).editInfo((Mobile) newProduct);
+
+        } else if (oldProduct instanceof Garment) {
+
+            if (oldProduct instanceof Shoes)
+                ((Shoes) oldProduct).editInfo((Shoes) newProduct);
+
+            if (oldProduct instanceof Clothe)
+                ((Clothe) oldProduct).editInfo((Clothe) newProduct);
+
+        } else if (oldProduct instanceof HomeThings) {
+
+            if (oldProduct instanceof Refrigerator)
+                ((Refrigerator) oldProduct).editInfo((Refrigerator) newProduct);
+
+            if (oldProduct instanceof TV)
+                ((TV) oldProduct).editInfo((TV) newProduct);
+
+            if (oldProduct instanceof Stove)
+                ((Stove) oldProduct).editInfo((Stove) newProduct);
+
+        } else if (oldProduct instanceof Food) {
+            ((Food) oldProduct).editInfo((Food) newProduct);
+        }
+    }
+    // -----------------------------------------------------------------------------
     public static void calculateAvgRate(Product product) {
         double sum = 0;
 
@@ -107,10 +143,6 @@ public class ProductManager {
             sum += score.getScore();
 
         product.setAvgRate(sum / (double) product.getScores().size());
-    }
-    // -----------------------------------------------------------------------------
-    public static ArrayList<Product> getAllProducts() {
-        return allProducts;
     }
     // -----------------------------------------------------------------------------
     public static ArrayList<Product> filterByPrice(double min, double max, Category category)

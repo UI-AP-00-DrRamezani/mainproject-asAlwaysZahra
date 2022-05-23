@@ -37,6 +37,20 @@ public class Stove extends HomeThings {
         this.withOven = withOven;
     }
 
+
+    public void editInfo(Stove newProduct)
+    {
+        this.setName(newProduct.getName());
+        this.setBrand(newProduct.getBrand());
+        this.setPrice(newProduct.getPrice());
+        this.setDescription(newProduct.getDescription());
+        this.setEnergyLabel(newProduct.getEnergyLabel());
+        this.setGuarantee(newProduct.isGuarantee());
+        this.setFlames(newProduct.getFlames());
+        this.setMaterial(newProduct.getMaterial());
+        this.setWithOven(newProduct.isWithOven());
+    }
+
     @Override
     public String toString() {
         return "Stove{" +

@@ -67,11 +67,8 @@ public class SellerManager {
                 false, true, false));
     }
     // -----------------------------------------------------------------------------
-    public Seller getSellerModel() {
-        return sellerModel;
-    }
-    // -----------------------------------------------------------------------------
-    public void setSellerModel(Seller model) {
-        sellerModel = model;
+    public void editProduct(Product oldProduct, Product newProduct) {
+        AdminManager.productRequests.add(new ProductRequest(newProduct, oldProduct, sellerModel,
+                false, false, true));
     }
 }

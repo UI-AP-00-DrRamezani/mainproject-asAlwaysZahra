@@ -21,8 +21,8 @@ public class Laptop extends Digital {
     }
 
     public void editInfo(String name, String brand, double price, String description,
-                           int memoryCapacity, int RAM, String OS, double weight, int size,
-                           String processor, boolean isGaming)
+                         int memoryCapacity, int RAM, String OS, double weight, int size,
+                         String processor, boolean isGaming)
     {
         this.setName(name);
         this.setBrand(brand);
@@ -35,6 +35,21 @@ public class Laptop extends Digital {
         this.setSize(size);
         this.processor = processor;
         this.isGaming = isGaming;
+    }
+
+    public void editInfo(Laptop newProduct)
+    {
+        this.setName(newProduct.getName());
+        this.setBrand(newProduct.getBrand());
+        this.setPrice(newProduct.getPrice());
+        this.setDescription(newProduct.getDescription());
+        this.setMemoryCapacity(newProduct.getMemoryCapacity());
+        this.setRAM(newProduct.getRAM());
+        this.setOS(newProduct.getOS());
+        this.setWeight(newProduct.getWeight());
+        this.setSize(newProduct.getSize());
+        this.processor = newProduct.processor;
+        this.isGaming = newProduct.isGaming;
     }
 
     @Override

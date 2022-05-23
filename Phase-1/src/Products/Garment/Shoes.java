@@ -32,6 +32,18 @@ public class Shoes extends Garment {
         this.kind = kind;
     }
 
+    public void editInfo(Shoes newProduct)
+    {
+        this.setName(newProduct.getName());
+        this.setBrand(newProduct.getBrand());
+        this.setPrice(newProduct.getPrice());
+        this.setDescription(newProduct.getDescription());
+        this.setCountry(newProduct.getCountry());
+        this.setMaterial(newProduct.getMaterial());
+        this.setSize(newProduct.size);
+        this.setKind(newProduct.kind);
+    }
+
     public enum ShoeKind {
         BOOT, SPORT, SLIPPER, WORK, SANDAL
     }

@@ -37,6 +37,21 @@ public class Mobile extends Digital {
         this.cameraQuality = cameraQuality;
     }
 
+    public void editInfo(Mobile newProduct)
+    {
+        this.setName(newProduct.getName());
+        this.setBrand(newProduct.getBrand());
+        this.setPrice(newProduct.getPrice());
+        this.setDescription(newProduct.getDescription());
+        this.setMemoryCapacity(newProduct.getMemoryCapacity());
+        this.setRAM(newProduct.getRAM());
+        this.setOS(newProduct.getOS());
+        this.setWeight(newProduct.getWeight());
+        this.setSize(newProduct.getSize());
+        this.SIMCards = newProduct.SIMCards;
+        this.cameraQuality = newProduct.cameraQuality;
+    }
+
     @Override
     public String toString() {
         return "Mobile{" +

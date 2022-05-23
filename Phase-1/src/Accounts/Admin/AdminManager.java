@@ -23,7 +23,8 @@ public class AdminManager {
     private Admin adminModel;
     // Methods ---------------------------------------------------------------------
     public void editInfo(String username, String firstName, String lastName,
-                         String email, String phoneNumber, String password) {
+                         String email, String phoneNumber, String password)
+    {
         adminModel.setUsername(username);
         adminModel.setFirstName(firstName);
         adminModel.setLastName(lastName);
@@ -87,6 +88,10 @@ public class AdminManager {
         }
     }
     // -----------------------------------------------------------------------------
+    public ArrayList<Comment> getComments() {
+        return comments;
+    }
+    // -----------------------------------------------------------------------------
     public void acceptComment(Comment comment) {
         comment.getProduct().addComment(comment);
         comment.setStat(Comment.Status.ACCEPTED);
@@ -110,7 +115,7 @@ public class AdminManager {
     }
     // -----------------------------------------------------------------------------
     public void acceptChangeProduct(ProductRequest request) {
-        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        ProductManager.editProduct(request.getOldProduct(), request.getProduct());
         productRequests.remove(request);
     }
 }

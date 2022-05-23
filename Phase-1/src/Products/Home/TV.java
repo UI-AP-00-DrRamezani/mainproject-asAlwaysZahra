@@ -34,6 +34,19 @@ public class TV extends HomeThings {
         this.screenSize = screenSize;
     }
 
+
+    public void editInfo(TV newProduct)
+    {
+        this.setName(newProduct.getName());
+        this.setBrand(newProduct.getBrand());
+        this.setPrice(newProduct.getPrice());
+        this.setDescription(newProduct.getDescription());
+        this.setEnergyLabel(newProduct.getEnergyLabel());
+        this.setGuarantee(newProduct.isGuarantee());
+        this.setPictureQuality(newProduct.getPictureQuality());
+        this.setScreenSize(newProduct.getScreenSize());
+    }
+
     @Override
     public String toString(){
         return "TV{" +

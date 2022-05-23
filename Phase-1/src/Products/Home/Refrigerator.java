@@ -37,6 +37,19 @@ public class Refrigerator extends HomeThings {
         this.withFreezer = withFreezer;
     }
 
+    public void editInfo(Refrigerator newProduct)
+    {
+        this.setName(newProduct.getName());
+        this.setBrand(newProduct.getBrand());
+        this.setPrice(newProduct.getPrice());
+        this.setDescription(newProduct.getDescription());
+        this.setEnergyLabel(newProduct.getEnergyLabel());
+        this.setGuarantee(newProduct.isGuarantee());
+        this.setCapacity(newProduct.getCapacity());
+        this.setKind(newProduct.getKind());
+        this.setWithFreezer(newProduct.isWithFreezer());
+    }
+
     @Override
     public String toString() {
         return "Refrigerator{" +
