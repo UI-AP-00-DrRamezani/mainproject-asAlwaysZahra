@@ -15,6 +15,14 @@ public class CustomerManager {
 
     public static Customer customerModel;
     // Methods ---------------------------------------------------------------------
+    public static boolean addToCart(int productID) {
+        if (ProductManager.getProductByID(productID) != null) {
+            customerModel.addToCart(ProductManager.getProductByID(productID));
+            return true;
+        }
+        return false;
+    }
+    // -----------------------------------------------------------------------------
     public boolean buy() {
         double sum = 0;
 

@@ -2,6 +2,7 @@ package Accounts.Seller;
 
 import Accounts.Admin.AdminManager;
 import Accounts.ChangeRequest;
+import Products.ProductManager;
 import Products.ProductRequest;
 import Products.Product;
 
@@ -66,14 +67,15 @@ public class SellerManager {
     // -----------------------------------------------------------------------------
     public boolean removeProduct(int productID) {
 
-        // search for product
-        for (Product p : sellerModel.getSaleProducts())
-            if (p.getId() == productID)
-            {
-                AdminManager.productRequests.add(new ProductRequest(p, null, sellerModel,
-                        false, true, false));
-                return true;
-            }
+        // find and get product
+        Product product = ProductManager.getProductByID(productID);
+
+        if (product != null)
+        {
+            AdminManager.productRequests.add(new ProductRequest(product, null, sellerModel,
+                    false, true, false));
+            return true;
+        }
 
         // if product could not be found
         return false;
@@ -81,16 +83,16 @@ public class SellerManager {
     // -----------------------------------------------------------------------------
     public boolean editProduct(int oldProductID, Product newProduct) {
 
-        // search for product
-        for (Product p : sellerModel.getSaleProducts())
-            if (p.getId() == oldProductID)
-            {
-                AdminManager.productRequests.add(new ProductRequest(newProduct, p, sellerModel,
-                        false, false, true));
-                return true;
-            }
+        // find and get product
+        Product product = ProductManager.getProductByID(oldProductID);
 
-        // if product could not be found
+        if (product != null) {
+            AdminManager.productRequests.add(new ProductRequest(newProduct, product, sellerModel,
+                    false, false, true));
+            return true;
+        }
+
+        // else if product could not be found
         return false;
     }
 }

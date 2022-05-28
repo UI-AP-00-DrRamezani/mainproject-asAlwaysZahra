@@ -12,13 +12,12 @@ import java.util.Scanner;
 public class ProfileMenu {
     static Scanner sc = new Scanner(System.in);
 
-    static AdminManager adminManager = new AdminManager();
     static CustomerManager customerManager = new CustomerManager();
     static SellerManager sellerManager = new SellerManager();
 
     public static void panelMenu()
     {
-        // check if user logged in
+        // check if any user didn't log in
         if (AdminManager.adminModel == null &&
                 CustomerManager.customerModel == null &&
                 SellerManager.sellerModel == null)
@@ -30,15 +29,15 @@ public class ProfileMenu {
 
             if (n == 1)
                 signUp();
-            if (n == 2)
+            else if (n == 2)
                 login();
 
         } else {
             if (AdminManager.adminModel != null)
                 AdminPanel.adminMenu();
-            if (CustomerManager.customerModel != null)
+            else if (CustomerManager.customerModel != null)
                 CustomerPanel.customerMenu();
-            if (SellerManager.sellerModel != null)
+            else if (SellerManager.sellerModel != null)
                 SellerPanel.sellerMenu();
         }
     }
@@ -88,9 +87,8 @@ public class ProfileMenu {
             else
                 System.out.println("This username is not available");
 
-
-
         } else if (n == 2) {
+
             System.out.println("Enter a username, your first name, last name,\n" +
                     "email, phone number, password and company:");
 

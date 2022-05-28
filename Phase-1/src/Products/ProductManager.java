@@ -175,9 +175,15 @@ public class ProductManager {
     public static ArrayList<Product> search(String name, Category category) {
         ArrayList<Product> searchProducts = new ArrayList<>();
         for (Product p : category.getProducts())
-            if (name.equals(p.getName()))
+            if (p.getName().contains(name) || name.contains(p.getName()))
                 searchProducts.add(p);
         return searchProducts;
     }
     // -----------------------------------------------------------------------------
+    public static Product getProductByID(int id) {
+        for (Product p : allProducts)
+            if (id == p.getId())
+                return p;
+        return null;
+    }
 }

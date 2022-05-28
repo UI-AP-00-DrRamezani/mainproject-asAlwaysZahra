@@ -52,8 +52,7 @@ public class SellerPanel {
                     manager.editInfo(sc.next(), sc.next(), sc.next(),
                             sc.next(), sc.next(), sc.next(), sc.next());
                     System.out.println("""
-
-                            Your request for adding a product was submitted,
+                            \nYour request for adding a product was submitted,
                             please wait for admin confirmation.""");
                     break;
 

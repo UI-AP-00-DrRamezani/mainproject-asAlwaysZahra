@@ -13,7 +13,7 @@ public class MainMenu {
         {
             System.out.println("--- Main Menu ---");
             System.out.println("1. Panel");
-            System.out.println("2. Product Page");
+            System.out.println("2. Products");
             System.out.println("3. Exit");
 
             int n = sc.nextInt();
