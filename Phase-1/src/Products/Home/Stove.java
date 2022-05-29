@@ -1,12 +1,14 @@
 package Products.Home;
 
-import Products.Product;
+import Products.Category;
+import Products.Product.Product;
 
 import java.util.ArrayList;
 
 public class Stove extends HomeThings {
 
     public static ArrayList<Stove> stoves = new ArrayList<>();
+    public static Category stoveCategory = new Category("Stove");
 
     private int flames;
     private String material;
@@ -54,7 +56,8 @@ public class Stove extends HomeThings {
     @Override
     public String toString() {
         return "Stove{" +
-                "name='" + getName() + '\'' +
+                "id='" + getId() + '\'' +
+                ", name='" + getName() + '\'' +
                 ", brand='" + getBrand() + '\'' +
                 ", price='" + getPrice() + '\'' +
                 ", description='" + getDescription() + '\'' +
@@ -66,13 +69,24 @@ public class Stove extends HomeThings {
                 '}';
     }
 
-    @Override
-    public ArrayList<Product> categoryFilter(String filter, String feature) {
+    public static ArrayList<Product> categoryFilter(String filter, String feature) {
 
         ArrayList<Product> filtered = new ArrayList<>();
 
         switch (filter)
         {
+            case "energyLabel":
+                for (Product product : homeCategory.getProducts())
+                    if (((HomeThings) product).getEnergyLabel().equals(feature))
+                        filtered.add(product);
+                break;
+
+            case "guarantee":
+                for (Product product : homeCategory.getProducts())
+                    if (((HomeThings) product).isGuarantee() == Boolean.parseBoolean(feature))
+                        filtered.add(product);
+                break;
+
             case "flames":
                 for (Stove stove : stoves)
                     if (stove.flames == Integer.parseInt(feature))

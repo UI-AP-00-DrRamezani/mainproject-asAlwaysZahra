@@ -1,6 +1,7 @@
 package Products;
 
 import Accounts.Account;
+import Products.Product.Product;
 
 public class Comment {
 

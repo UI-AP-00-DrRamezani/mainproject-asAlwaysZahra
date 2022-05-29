@@ -1,12 +1,14 @@
 package Products.Digital;
 
-import Products.Product;
+import Products.Category;
+import Products.Product.Product;
 
 import java.util.ArrayList;
 
 public class Mobile extends Digital {
 
     public static ArrayList<Mobile> mobiles = new ArrayList<>();
+    public static Category mobileCategory = new Category("Mobile");
 
     private int SIMCards;
     private int cameraQuality;
@@ -55,7 +57,8 @@ public class Mobile extends Digital {
     @Override
     public String toString() {
         return "Mobile{" +
-                "name='" + getName() + '\'' +
+                "id='" + getId() + '\'' +
+                ", name='" + getName() + '\'' +
                 ", brand='" + getBrand() + '\'' +
                 ", price='" + getPrice() + '\'' +
                 ", description='" + getDescription() + '\'' +
@@ -69,22 +72,55 @@ public class Mobile extends Digital {
                 '}';
     }
 
-    @Override
-    public ArrayList<Product> categoryFilter(String filter, String feature) {
+    public static ArrayList<Product> categoryFilter(String filter, String feature) {
 
         ArrayList<Product> filtered = new ArrayList<>();
 
-        if (filter.equals("SIMCards")) {
+        switch (filter)
+        {
+            case "memoryCapacity":
+                for (Product product : digitalCategory.getProducts())
+                    if (((Digital) product).getMemoryCapacity() == Integer.parseInt(feature))
+                        filtered.add(product);
+                break;
 
-            for (Mobile mobile : mobiles)
-                if (mobile.SIMCards == Integer.parseInt(feature))
-                    filtered.add(mobile);
+            case "RAM":
+                for (Product product : digitalCategory.getProducts())
+                    if (((Digital) product).getRAM() == Integer.parseInt(feature))
+                        filtered.add(product);
+                break;
 
-        } else if (filter.equals("cameraQuality")) {
+            case "OS":
+                for (Product product : digitalCategory.getProducts())
+                    if (((Digital) product).getOS().equals(feature))
+                        filtered.add(product);
+                break;
 
-            for (Mobile mobile : mobiles)
-                if (mobile.cameraQuality == Integer.parseInt(feature))
-                    filtered.add(mobile);
+            case "weight":
+                for (Product product : digitalCategory.getProducts())
+                    if (((Digital) product).getWeight() == Double.parseDouble(feature))
+                        filtered.add(product);
+                break;
+
+            case "size":
+                for (Product product : digitalCategory.getProducts())
+                    if (((Digital) product).getSize() == Integer.parseInt(feature))
+                        filtered.add(product);
+                break;
+
+            case "SIMCards":
+
+                for (Mobile mobile : mobiles)
+                    if (mobile.SIMCards == Integer.parseInt(feature))
+                        filtered.add(mobile);
+
+                break;
+            case "cameraQuality":
+
+                for (Mobile mobile : mobiles)
+                    if (mobile.cameraQuality == Integer.parseInt(feature))
+                        filtered.add(mobile);
+                break;
         }
 
         return filtered;

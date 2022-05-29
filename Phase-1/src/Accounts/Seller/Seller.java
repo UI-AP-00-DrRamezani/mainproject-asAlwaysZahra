@@ -2,7 +2,7 @@ package Accounts.Seller;
 
 import Accounts.Account;
 import Factors.SaleFactor;
-import Products.Product;
+import Products.Product.Product;
 
 import java.util.ArrayList;
 

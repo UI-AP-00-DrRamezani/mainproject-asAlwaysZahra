@@ -1,7 +1,7 @@
 package Factors;
 
 import Accounts.Seller.Seller;
-import Products.Product;
+import Products.Product.Product;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -13,8 +13,8 @@ public class BuyFactor {
     private final int id;
     private String date;
     private double payment;
-    private final ArrayList<Product> products;
-    private final ArrayList<Seller> sellers = new ArrayList<>();
+    private ArrayList<Product> products;
+    private ArrayList<Seller> sellers = new ArrayList<>();
     private boolean isDelivered;
 
     public BuyFactor(double payment, ArrayList<Product> products)

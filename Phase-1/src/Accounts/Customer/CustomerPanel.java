@@ -1,7 +1,7 @@
 package Accounts.Customer;
 
 import Factors.BuyFactor;
-import Products.Product;
+import Products.Product.Product;
 import UI.MainMenu;
 
 import java.util.Scanner;
@@ -11,8 +11,8 @@ public class CustomerPanel {
 
     static CustomerManager manager = new CustomerManager();
 
-    public static void customerMenu() {
-
+    public static void customerMenu()
+    {
         while (CustomerManager.customerModel != null)
         {
             System.out.println("\nWelcome Dear " + CustomerManager.customerModel.getFirstName() + " " + CustomerManager.customerModel.getLastName());
@@ -23,22 +23,15 @@ public class CustomerPanel {
             System.out.println("2. Increase Credit");
             System.out.println("3. Cart");
             System.out.println("4. Finalize Cart");
-            System.out.println("5. Score a Product");
-            System.out.println("6. History");
-            System.out.println("-2. Back");
-            System.out.println("-1. Log out");
+            System.out.println("5. Remove a Product From The Cart");
+            System.out.println("6. Score a Product");
+            System.out.println("7. History");
+            System.out.println("8. Back");
+            System.out.println("9. Log out");
 
             int number = sc.nextInt();
 
-            switch (number)
-            {
-                case -2:
-                    MainMenu.mainMenu();
-
-                case -1:
-                    manager.logout();
-                    return;
-
+            switch (number) {
                 case 0:
                     System.out.println(CustomerManager.customerModel.toString());
                     break;
@@ -49,8 +42,7 @@ public class CustomerPanel {
                     manager.editInfo(sc.next(), sc.next(), sc.next(),
                             sc.next(), sc.next(), sc.next());
                     System.out.println("""
-
-                            Your request for adding a product was submitted,
+                            \nYour request for adding a product was submitted,
                             please wait for admin confirmation.""");
                     break;
 
@@ -60,8 +52,14 @@ public class CustomerPanel {
                     break;
 
                 case 3:
-                    for (Product p : CustomerManager.customerModel.getCart())
-                        System.out.println(p.toString());
+                    if (CustomerManager.customerModel.getCart().isEmpty()) {
+                        System.out.println("Cart is Empty");
+
+                    } else {
+                        for (Product p : CustomerManager.customerModel.getCart())
+                            System.out.println(p.toString());
+                    }
+
                     break;
 
                 case 4:
@@ -74,6 +72,14 @@ public class CustomerPanel {
                     break;
 
                 case 5:
+                    System.out.println("Enter productID:");
+                    if (manager.removeFromCart(sc.nextInt()))
+                        System.out.println("Removed");
+                    else
+                        System.out.println("You do not have this product in the cart");
+                    break;
+
+                case 6:
                     System.out.println("\nList of products you have bought:\n");
                     for (BuyFactor factor : CustomerManager.customerModel.getHistory())
                         for (Product p : factor.getProducts())
@@ -87,7 +93,7 @@ public class CustomerPanel {
                         System.out.println("You did not buy this product");
                     break;
 
-                case 6:
+                case 7:
                     System.out.println("\nHistory\n");
                     for (BuyFactor factor : CustomerManager.customerModel.getHistory())
                     {
@@ -98,6 +104,15 @@ public class CustomerPanel {
                         System.out.println("-----------------------------------");
                     }
                     break;
+
+                case 8:
+                    MainMenu.mainMenu();
+                    break;
+
+                case 9:
+                    manager.logout();
+                    MainMenu.mainMenu();
+                    return;
 
                 default:
                     System.out.println("Error");

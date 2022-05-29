@@ -1,11 +1,11 @@
 package Products.Digital;
 
 import Products.Category;
-import Products.Product;
+import Products.Product.Product;
 
 public abstract class Digital extends Product {
 
-    public static Category digitalCategory = new Category("digital");
+    public static Category digitalCategory = new Category("Digital");
 
     private int memoryCapacity;
     private int RAM;

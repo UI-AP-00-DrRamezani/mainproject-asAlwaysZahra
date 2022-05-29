@@ -1,12 +1,14 @@
 package Products.Home;
 
-import Products.Product;
+import Products.Category;
+import Products.Product.Product;
 
 import java.util.ArrayList;
 
 public class TV extends HomeThings {
 
     public static ArrayList<TV> tvs = new ArrayList<>();
+    public static Category tvCategory = new Category("TV");
 
     private String pictureQuality;
     private int screenSize;
@@ -50,7 +52,8 @@ public class TV extends HomeThings {
     @Override
     public String toString(){
         return "TV{" +
-                "name='" + getName() + '\'' +
+                "id='" + getId() + '\'' +
+                ", name='" + getName() + '\'' +
                 ", brand='" + getBrand() + '\'' +
                 ", price='" + getPrice() + '\'' +
                 ", description='" + getDescription() + '\'' +
@@ -61,22 +64,37 @@ public class TV extends HomeThings {
                 '}';
     }
 
-    @Override
-    public ArrayList<Product> categoryFilter(String filter, String feature) {
+    public static ArrayList<Product> categoryFilter(String filter, String feature) {
 
         ArrayList<Product> filtered = new ArrayList<>();
 
-        if (filter.equals("pictureQuality")) {
+        switch (filter)
+        {
+            case "energyLabel":
+                for (Product product : homeCategory.getProducts())
+                    if (((HomeThings) product).getEnergyLabel().equals(feature))
+                        filtered.add(product);
+                break;
 
-            for (TV tv : tvs)
-                if (tv.pictureQuality.equals(feature))
-                    filtered.add(tv);
+            case "guarantee":
+                for (Product product : homeCategory.getProducts())
+                    if (((HomeThings) product).isGuarantee() == Boolean.parseBoolean(feature))
+                        filtered.add(product);
+                break;
 
-        } else if (filter.equals("screenSize")) {
+            case "pictureQuality":
 
-            for (TV tv : tvs)
-                if (tv.screenSize == Integer.parseInt(feature))
-                    filtered.add(tv);
+                for (TV tv : tvs)
+                    if (tv.pictureQuality.equals(feature))
+                        filtered.add(tv);
+
+                break;
+            case "screenSize":
+
+                for (TV tv : tvs)
+                    if (tv.screenSize == Integer.parseInt(feature))
+                        filtered.add(tv);
+                break;
         }
 
         return filtered;

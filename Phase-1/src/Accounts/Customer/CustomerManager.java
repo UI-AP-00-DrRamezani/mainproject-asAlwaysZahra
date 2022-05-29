@@ -3,8 +3,8 @@ package Accounts.Customer;
 import Accounts.Admin.AdminManager;
 import Factors.BuyFactor;
 import Factors.SaleFactor;
-import Products.Product;
-import Products.ProductManager;
+import Products.Product.Product;
+import Products.Product.ProductManager;
 import Products.Score;
 
 import java.util.ArrayList;
@@ -23,6 +23,16 @@ public class CustomerManager {
         return false;
     }
     // -----------------------------------------------------------------------------
+    public boolean removeFromCart(int productID) {
+        for (Product p : customerModel.getCart())
+            if (p.getId() == productID) {
+                customerModel.getCart().remove(p);
+                return true;
+            }
+        return false;
+    }
+    // -----------------------------------------------------------------------------
+    // todo shipping page
     public boolean buy() {
         double sum = 0;
 
@@ -37,7 +47,7 @@ public class CustomerManager {
             customerModel.setCredit(customerModel.getCredit() - sum);
 
         // add to history for customer
-        BuyFactor buyFactor = new BuyFactor(sum, customerModel.getCart());
+        BuyFactor buyFactor = new BuyFactor(sum, (ArrayList<Product>) customerModel.getCart().clone());
         customerModel.addToHistory(buyFactor);
 
         // add sellers of products to buyFactor
@@ -97,7 +107,7 @@ public class CustomerManager {
         customerModel.setCredit(customerModel.getCredit() + credit);
     }
     // -----------------------------------------------------------------------------
-    public boolean scoring(int productID, int score) {
+    public boolean scoring(int productID, int score) { // todo fix score to do it 1 time
 
         // try to find the product in history
         for (BuyFactor factor : customerModel.getHistory())
@@ -133,4 +143,14 @@ public class CustomerManager {
         customerModel = null;
     }
     // -----------------------------------------------------------------------------
+    public static boolean didBuyProduct(Product product) {
+
+        // check if this user has bought the product -> search in History
+        for (BuyFactor factor : customerModel.getHistory())
+            for (Product p : factor.getProducts())
+                if (p.getId() == product.getId())
+                    return true;
+
+        return false;
+    }
 }

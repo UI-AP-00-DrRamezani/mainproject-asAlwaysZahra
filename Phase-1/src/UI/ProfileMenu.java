@@ -15,7 +15,7 @@ public class ProfileMenu {
     static CustomerManager customerManager = new CustomerManager();
     static SellerManager sellerManager = new SellerManager();
 
-    public static void panelMenu()
+    public static void profileMenu()
     {
         // check if any user didn't log in
         if (AdminManager.adminModel == null &&
@@ -24,6 +24,7 @@ public class ProfileMenu {
         {
             System.out.println("1. Sign up");
             System.out.println("2. Log in");
+            System.out.println("3. Back");
 
             int n = sc.nextInt();
 
@@ -31,13 +32,17 @@ public class ProfileMenu {
                 signUp();
             else if (n == 2)
                 login();
+            else if (n == 3)
+                MainMenu.mainMenu();
 
         } else {
             if (AdminManager.adminModel != null)
                 AdminPanel.adminMenu();
+
             else if (CustomerManager.customerModel != null)
                 CustomerPanel.customerMenu();
-            else if (SellerManager.sellerModel != null)
+
+            else
                 SellerPanel.sellerMenu();
         }
     }
@@ -83,7 +88,7 @@ public class ProfileMenu {
 
             if (customerManager.addCustomer(sc.next(), sc.next(), sc.next(), sc.next(),
                     sc.next(), sc.next(), sc.nextDouble()))
-                System.out.println("Your account created successfully");
+                System.out.println("Your account created successfully. You can log in to your account");
             else
                 System.out.println("This username is not available");
 
@@ -98,5 +103,6 @@ public class ProfileMenu {
             else
                 System.out.println("This username is not available");
         }
+        MainMenu.mainMenu();
     }
 }

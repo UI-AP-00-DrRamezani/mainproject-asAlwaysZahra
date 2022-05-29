@@ -1,13 +1,13 @@
 package Products.Food;
 
 import Products.Category;
-import Products.Product;
+import Products.Product.Product;
 
 import java.util.ArrayList;
 
 public class Food extends Product {
 
-    public static Category foodCategory = new Category("food");
+    public static Category foodCategory = new Category("Food");
 
     private final String proDate;
     private final String expDate;
@@ -41,7 +41,8 @@ public class Food extends Product {
     @Override
     public String toString() {
         return "Food{" +
-                "name='" + getName() + '\'' +
+                "id='" + getId() + '\'' +
+                ", name='" + getName() + '\'' +
                 ", brand='" + getBrand() + '\'' +
                 ", price='" + getPrice() + '\'' +
                 ", description='" + getDescription() + '\'' +
@@ -50,8 +51,7 @@ public class Food extends Product {
                 '}';
     }
 
-    @Override
-    public ArrayList<Product> categoryFilter(String filter, String feature) {
+    public static ArrayList<Product> categoryFilter(String filter, String feature) {
 
         ArrayList<Product> filtered = new ArrayList<>();
 

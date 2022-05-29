@@ -1,6 +1,7 @@
 package Products;
 
 import Accounts.Customer.Customer;
+import Products.Product.Product;
 
 public class Score {
 
@@ -10,7 +11,12 @@ public class Score {
 
     public Score(Customer user, int score, Product product) {
         this.user = user;
-        this.score = score;
+
+        if (score > 5 || score < 0)
+            this.score = 0;
+        else
+            this.score = score;
+
         this.product = product;
     }
 
@@ -38,7 +44,8 @@ public class Score {
     }
 
     public void setScore(int score) {
-        this.score = score;
+        if (score > 5 || score < 0)
+            this.score = 0;
     }
 
     public Product getProduct() {

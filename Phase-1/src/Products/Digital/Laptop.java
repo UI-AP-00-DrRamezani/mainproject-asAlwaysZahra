@@ -1,12 +1,14 @@
 package Products.Digital;
 
-import Products.Product;
+import Products.Category;
+import Products.Product.Product;
 
 import java.util.ArrayList;
 
 public class Laptop extends Digital {
 
     public static ArrayList<Laptop> laptops = new ArrayList<>();
+    public static Category laptopCategory = new Category("Laptop");
 
     private String processor;
     private boolean isGaming;
@@ -55,7 +57,8 @@ public class Laptop extends Digital {
     @Override
     public String toString() {
         return "Laptop{" +
-                "name='" + getName() + '\'' +
+                "id='" + getId() + '\'' +
+                ", name='" + getName() + '\'' +
                 ", brand='" + getBrand() + '\'' +
                 ", price='" + getPrice() + '\'' +
                 ", description='" + getDescription() + '\'' +
@@ -69,22 +72,53 @@ public class Laptop extends Digital {
                 '}';
     }
 
-    @Override
-    public ArrayList<Product> categoryFilter(String filter, String feature) {
+    public static ArrayList<Product> categoryFilter(String filter, String feature) {
 
         ArrayList<Product> filtered = new ArrayList<>();
 
-        if (filter.equals("processor")) {
+        switch (filter)
+        {
+            case "memoryCapacity":
+                for (Product product : digitalCategory.getProducts())
+                    if (((Digital) product).getMemoryCapacity() == Integer.parseInt(feature))
+                        filtered.add(product);
+                break;
 
-            for (Laptop laptop : laptops)
-                if (laptop.processor.equals(feature))
-                    filtered.add(laptop);
+            case "RAM":
+                for (Product product : digitalCategory.getProducts())
+                    if (((Digital) product).getRAM() == Integer.parseInt(feature))
+                        filtered.add(product);
+                break;
 
-        } else if (filter.equals("isGaming")) {
+            case "OS":
+                for (Product product : digitalCategory.getProducts())
+                    if (((Digital) product).getOS().equals(feature))
+                        filtered.add(product);
+                break;
 
-            for (Laptop laptop : laptops)
-                if (laptop.isGaming == Boolean.parseBoolean(feature))
-                    filtered.add(laptop);
+            case "weight":
+                for (Product product : digitalCategory.getProducts())
+                    if (((Digital) product).getWeight() == Double.parseDouble(feature))
+                        filtered.add(product);
+                break;
+
+            case "size":
+                for (Product product : digitalCategory.getProducts())
+                    if (((Digital) product).getSize() == Integer.parseInt(feature))
+                        filtered.add(product);
+                break;
+
+            case "processor":
+                for (Laptop laptop : laptops)
+                    if (laptop.getProcessor().contains(feature))
+                        filtered.add(laptop);
+                break;
+
+            case "isGaming":
+                for (Laptop laptop : laptops)
+                    if (laptop.isGaming == Boolean.parseBoolean(feature))
+                        filtered.add(laptop);
+                break;
         }
 
         return filtered;

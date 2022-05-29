@@ -1,16 +1,11 @@
-package Products;
+package Products.Product;
 
-import Products.Digital.Digital;
-import Products.Digital.Laptop;
-import Products.Digital.Mobile;
+import Products.Category;
+import Products.Digital.*;
 import Products.Food.Food;
-import Products.Garment.Clothe;
-import Products.Garment.Garment;
-import Products.Garment.Shoes;
-import Products.Home.HomeThings;
-import Products.Home.Refrigerator;
-import Products.Home.Stove;
-import Products.Home.TV;
+import Products.Garment.*;
+import Products.Home.*;
+import Products.Score;
 
 import java.util.ArrayList;
 
@@ -29,35 +24,51 @@ public class ProductManager {
         if (product instanceof Digital) {
             Digital.digitalCategory.addProduct(product);
 
-            if (product instanceof Laptop)
-                Laptop.laptops.add((Laptop) product);
+            if (product instanceof Laptop) {
+                Laptop.laptopCategory.addProduct(product);
+                Laptop.laptopCategory.addProduct(product);
+            }
 
-            if (product instanceof Mobile)
+            if (product instanceof Mobile) {
                 Mobile.mobiles.add((Mobile) product);
+                Mobile.digitalCategory.addProduct(product);
+            }
 
         } else if (product instanceof Garment) {
             Garment.garmentCategory.addProduct(product);
 
-            if (product instanceof Shoes)
+            if (product instanceof Shoes) {
                 Shoes.shoes.add((Shoes) product);
+                Shoes.shoesCategory.addProduct(product);
+            }
 
-            if (product instanceof Clothe)
+            if (product instanceof Clothe) {
                 Clothe.clothes.add((Clothe) product);
+                Clothe.clotheCategory.addProduct(product);
+            }
 
         } else if (product instanceof HomeThings) {
             HomeThings.homeCategory.addProduct(product);
 
-            if (product instanceof Refrigerator)
+            if (product instanceof Refrigerator) {
                 Refrigerator.refrigerators.add((Refrigerator) product);
+                Refrigerator.refrigeratorCategory.addProduct(product);
+            }
 
-            if (product instanceof TV)
+            if (product instanceof TV) {
                 TV.tvs.add((TV) product);
+                TV.tvCategory.addProduct(product);
+            }
 
-            if (product instanceof Stove)
+            if (product instanceof Stove) {
                 Stove.stoves.add((Stove) product);
+                Stove.stoveCategory.addProduct(product);
+            }
 
         } else if (product instanceof Food) {
+
             Food.foodCategory.addProduct(product);
+
         }
     }
     // -----------------------------------------------------------------------------
@@ -185,5 +196,9 @@ public class ProductManager {
             if (id == p.getId())
                 return p;
         return null;
+    }
+    // -----------------------------------------------------------------------------
+    public static ArrayList<Product> removeFilter(Category category) {
+        return category.getProducts();
     }
 }

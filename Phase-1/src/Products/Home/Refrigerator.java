@@ -1,12 +1,14 @@
 package Products.Home;
 
-import Products.Product;
+import Products.Category;
+import Products.Product.Product;
 
 import java.util.ArrayList;
 
 public class Refrigerator extends HomeThings {
 
     public static ArrayList<Refrigerator> refrigerators = new ArrayList<>();
+    public static Category refrigeratorCategory = new Category("Refrigerator");
 
     private int capacity;
     private String kind;
@@ -53,7 +55,8 @@ public class Refrigerator extends HomeThings {
     @Override
     public String toString() {
         return "Refrigerator{" +
-                "name='" + getName() + '\'' +
+                "id='" + getId() + '\'' +
+                ", name='" + getName() + '\'' +
                 ", brand='" + getBrand() + '\'' +
                 ", price='" + getPrice() + '\'' +
                 ", description='" + getDescription() + '\'' +
@@ -65,13 +68,24 @@ public class Refrigerator extends HomeThings {
                 '}';
     }
 
-    @Override
-    public ArrayList<Product> categoryFilter(String filter, String feature) {
+    public static ArrayList<Product> categoryFilter(String filter, String feature) {
 
         ArrayList<Product> filtered = new ArrayList<>();
 
         switch (filter)
         {
+            case "energyLabel":
+                for (Product product : homeCategory.getProducts())
+                    if (((HomeThings) product).getEnergyLabel().equals(feature))
+                        filtered.add(product);
+                break;
+
+            case "guarantee":
+                for (Product product : homeCategory.getProducts())
+                    if (((HomeThings) product).isGuarantee() == Boolean.parseBoolean(feature))
+                        filtered.add(product);
+                break;
+
             case "capacity":
                 for (Refrigerator refrigerator : refrigerators)
                     if (refrigerator.capacity == Integer.parseInt(feature))

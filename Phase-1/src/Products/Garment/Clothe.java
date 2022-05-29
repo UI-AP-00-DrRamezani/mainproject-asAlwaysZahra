@@ -1,14 +1,16 @@
 package Products.Garment;
 
-import Products.Product;
+import Products.Category;
+import Products.Product.Product;
 
 import java.util.ArrayList;
 
 public class Clothe extends Garment {
 
     public static ArrayList<Clothe> clothes = new ArrayList<>();
+    public static Category clotheCategory = new Category("Clothe");
 
-    private String size; // enum????????
+    private String size; // todo enum????????
     private ClotheKind kind;
 
     public Clothe(String name, String brand, double price, String description,
@@ -51,7 +53,8 @@ public class Clothe extends Garment {
     @Override
     public String toString() {
         return "Clothe{" +
-                "name='" + getName() + '\'' +
+                "id='" + getId() + '\'' +
+                ", name='" + getName() + '\'' +
                 ", brand='" + getBrand() + '\'' +
                 ", price='" + getPrice() + '\'' +
                 ", description='" + getDescription() + '\'' +
@@ -62,22 +65,35 @@ public class Clothe extends Garment {
                 '}';
     }
 
-    @Override
-    public ArrayList<Product> categoryFilter(String filter, String feature) {
+    public static ArrayList<Product> categoryFilter(String filter, String feature) {
 
         ArrayList<Product> filtered = new ArrayList<>();
 
-        if (filter.equals("size")) {
+        switch (filter) {
 
-            for (Clothe clothe : clothes)
-                if (clothe.size.equals(feature))
-                    filtered.add(clothe);
+            case "country":
+                for (Product product : garmentCategory.getProducts())
+                    if (((Garment) product).getCountry().equals(feature))
+                        filtered.add(product);
+                break;
 
-        } else if (filter.equals("kind")) {
+            case "material":
+                for (Product product : garmentCategory.getProducts())
+                    if (((Garment) product).getMaterial().equals(feature))
+                        filtered.add(product);
+                break;
 
-            for (Clothe clothe : clothes)
-                if (clothe.kind.equals(ClotheKind.valueOf(feature)))
-                    filtered.add(clothe);
+            case "size":
+                for (Clothe clothe : clothes)
+                    if (clothe.size.equals(feature))
+                        filtered.add(clothe);
+                break;
+
+            case "kind":
+                for (Clothe clothe : clothes)
+                    if (clothe.kind.equals(ClotheKind.valueOf(feature)))
+                        filtered.add(clothe);
+                break;
         }
 
         return filtered;

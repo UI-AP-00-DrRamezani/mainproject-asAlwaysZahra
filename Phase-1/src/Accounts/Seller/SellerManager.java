@@ -2,9 +2,9 @@ package Accounts.Seller;
 
 import Accounts.Admin.AdminManager;
 import Accounts.ChangeRequest;
-import Products.ProductManager;
+import Products.Product.ProductManager;
 import Products.ProductRequest;
-import Products.Product;
+import Products.Product.Product;
 
 import java.util.ArrayList;
 

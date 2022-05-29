@@ -1,6 +1,7 @@
 package Products;
 
 import Accounts.Seller.Seller;
+import Products.Product.Product;
 
 public class ProductRequest {
 

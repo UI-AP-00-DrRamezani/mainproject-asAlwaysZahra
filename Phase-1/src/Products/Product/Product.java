@@ -1,6 +1,8 @@
-package Products;
+package Products.Product;
 
 import Accounts.Seller.Seller;
+import Products.Comment;
+import Products.Score;
 
 import java.util.ArrayList;
 
@@ -31,7 +33,6 @@ public abstract class Product {
 
     @Override
     public abstract String toString();
-    public abstract ArrayList<Product> categoryFilter(String filter, String feature);
 
     // Getters and Setters ================================================
 

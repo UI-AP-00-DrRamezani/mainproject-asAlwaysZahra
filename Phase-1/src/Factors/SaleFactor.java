@@ -1,7 +1,7 @@
 package Factors;
 
 import Accounts.Customer.Customer;
-import Products.Product;
+import Products.Product.Product;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

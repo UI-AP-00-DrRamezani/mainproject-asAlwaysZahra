@@ -1,11 +1,11 @@
 package Products.Garment;
 
 import Products.Category;
-import Products.Product;
+import Products.Product.Product;
 
 public abstract class Garment extends Product {
 
-    public static Category garmentCategory = new Category("garment");
+    public static Category garmentCategory = new Category("Garment");
 
     private String country;
     private String material;

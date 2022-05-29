@@ -1,13 +1,13 @@
 package Products.Home;
 
 import Products.Category;
-import Products.Product;
+import Products.Product.Product;
 
 public abstract class HomeThings extends Product {
 
-    public static Category homeCategory = new Category("home");
+    public static Category homeCategory = new Category("Home");
 
-    private String energyLabel;
+    private String energyLabel; // TODO enum??
     private boolean guarantee;
 
     public HomeThings(String name, String brand, double price, String description,

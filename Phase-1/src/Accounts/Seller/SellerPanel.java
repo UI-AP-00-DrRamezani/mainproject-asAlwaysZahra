@@ -5,7 +5,7 @@ import Products.Digital.*;
 import Products.Food.Food;
 import Products.Garment.*;
 import Products.Home.*;
-import Products.Product;
+import Products.Product.Product;
 import UI.MainMenu;
 
 import java.util.Scanner;
@@ -28,20 +28,13 @@ public class SellerPanel {
             System.out.println("4. Edit Product Information");
             System.out.println("5. Your Products");
             System.out.println("6. History");
-            System.out.println("-2. Back");
-            System.out.println("-1. Log out");
+            System.out.println("7. Back");
+            System.out.println("8. Log out");
 
             int number = sc.nextInt();
 
             switch (number)
             {
-                case -2:
-                    MainMenu.mainMenu();
-
-                case -1:
-                    manager.logout();
-                    return;
-
                 case 0:
                     System.out.println(SellerManager.sellerModel.toString());
                     break;
@@ -92,12 +85,20 @@ public class SellerPanel {
 
                 case 6:
                     System.out.println("\nHistory\n");
-                    for (SaleFactor factor : SellerManager.sellerModel.getHistory())
-                    {
+                    for (SaleFactor factor : SellerManager.sellerModel.getHistory()) {
                         System.out.println(factor);
                         System.out.println("-----------------------------------");
                     }
                     break;
+
+                case 7:
+                    MainMenu.mainMenu();
+                    break;
+
+                case 8:
+                    manager.logout();
+                    MainMenu.mainMenu();
+                    return;
 
                 default:
                     System.out.println("Error");

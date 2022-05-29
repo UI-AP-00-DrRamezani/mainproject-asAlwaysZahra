@@ -1,6 +1,6 @@
 package UI;
 
-import Products.ProductView;
+import Products.Product.ProductView;
 
 import java.util.Scanner;
 
@@ -20,7 +20,7 @@ public class MainMenu {
 
             switch (n)
             {
-                case 1 -> ProfileMenu.panelMenu();
+                case 1 -> ProfileMenu.profileMenu();
 
                 case 2 -> ProductView.productMenu();
 

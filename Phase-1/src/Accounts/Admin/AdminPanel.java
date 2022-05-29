@@ -34,21 +34,13 @@ public class AdminPanel {
             System.out.println("9. Comments");
             System.out.println("10. Categories");
             System.out.println("11. Add a Category");
-            System.out.println("-2. Back");
-            System.out.println("-1. Log out");
+            System.out.println("12. Back");
+            System.out.println("13. Log out");
 
             int number = sc.nextInt();
 
             switch (number)
             {
-                case -2:
-                    MainMenu.mainMenu();
-                    break;
-
-                case -1:
-                    manager.logout();
-                    return;
-
                 case 0:
                     System.out.println(AdminManager.adminModel.toString());
                     break;
@@ -218,6 +210,15 @@ public class AdminPanel {
                     System.out.println("Enter category's name");
                     new Category(sc.next());
                     break;
+
+                case 12:
+                    MainMenu.mainMenu();
+                    break;
+
+                case 13:
+                    manager.logout();
+                    MainMenu.mainMenu();
+                    return;
 
                 default:
                     System.out.println("Error");

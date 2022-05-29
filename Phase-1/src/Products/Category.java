@@ -1,5 +1,7 @@
 package Products;
 
+import Products.Product.Product;
+
 import java.util.ArrayList;
 
 public class Category {

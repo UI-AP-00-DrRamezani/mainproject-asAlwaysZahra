@@ -8,7 +8,7 @@ import Products.ProductRequest;
 import Accounts.Seller.Seller;
 import Accounts.Seller.SellerManager;
 import Products.Comment;
-import Products.ProductManager;
+import Products.Product.ProductManager;
 
 import java.util.ArrayList;
 
