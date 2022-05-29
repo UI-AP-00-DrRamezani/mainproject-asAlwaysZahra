@@ -1,5 +1,6 @@
 package Products.Home;
 
+<<<<<<< HEAD
 import Products.Category;
 import Products.Product.Product;
 
@@ -17,14 +18,39 @@ public class TV extends HomeThings {
               String energyLabel, boolean guarantee,
               String pictureQuality, int screenSize)
     {
+=======
+public class TV extends HomeThings {
+    private String pictureQuality;
+    private int screenSize;
+
+    public TV(String name,
+              String brand,
+              double price,
+              String description,
+              String energyLabel,
+              boolean guarantee,
+              String pictureQuality,
+              int screenSize) {
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
         super(name, brand, price, description, energyLabel, guarantee);
         this.pictureQuality = pictureQuality;
         this.screenSize = screenSize;
     }
 
+<<<<<<< HEAD
     public void editInfo(String name, String brand, double price, String description,
                          String energyLabel, boolean guarantee,
                          String pictureQuality, int screenSize)
+=======
+    public void changeInfo(String name,
+                    String brand,
+                    double price,
+                    String description,
+                    String energyLabel,
+                    boolean guarantee,
+                    String pictureQuality,
+                    int screenSize)
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
     {
         this.setName(name);
         this.setBrand(brand);
@@ -36,6 +62,7 @@ public class TV extends HomeThings {
         this.screenSize = screenSize;
     }
 
+<<<<<<< HEAD
 
     public void editInfo(TV newProduct)
     {
@@ -101,6 +128,25 @@ public class TV extends HomeThings {
     }
 
     // Getters and Setters ================================================
+=======
+    @Override
+    public void specialFeatures() {
+        System.out.println("Energy label: " + super.getEnergyLabel());
+        if (super.isGuarantee())
+            System.out.println("Guarantee: YES");
+        else
+            System.out.println("Guarantee: NO");
+        System.out.println("Picture quality: " + this.pictureQuality);
+        System.out.println("Screen Size: " + this.screenSize + "in");
+    }
+
+    @Override
+    public void categoryFilter() {
+
+    }
+
+    // Setters and Getters
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
 
     public String getPictureQuality() {
         return pictureQuality;

@@ -1,5 +1,6 @@
 package Products.Home;
 
+<<<<<<< HEAD
 import Products.Category;
 import Products.Product.Product;
 
@@ -10,23 +11,50 @@ public class Refrigerator extends HomeThings {
     public static ArrayList<Refrigerator> refrigerators = new ArrayList<>();
     public static Category refrigeratorCategory = new Category("Refrigerator");
 
+=======
+public class Refrigerator extends HomeThings {
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
     private int capacity;
     private String kind;
     private boolean withFreezer;
 
+<<<<<<< HEAD
     public Refrigerator(String name, String brand, double price, String description,
                         String energyLabel, boolean guarantee,
                         int capacity, String kind, boolean withFreezer)
     {
+=======
+    public Refrigerator(String name,
+                        String brand,
+                        double price,
+                        String description,
+                        String energyLabel,
+                        boolean guarantee,
+                        int capacity,
+                        String kind,
+                        boolean withFreezer) {
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
         super(name, brand, price, description, energyLabel, guarantee);
         this.capacity = capacity;
         this.kind = kind;
         this.withFreezer = withFreezer;
     }
 
+<<<<<<< HEAD
     public void editInfo(String name, String brand, double price, String description,
                            String energyLabel, boolean guarantee,
                            int capacity, String kind, boolean withFreezer)
+=======
+    public void changeInfo(String name,
+                    String brand,
+                    double price,
+                    String description,
+                    String energyLabel,
+                    boolean guarantee,
+                    int capacity,
+                    String kind,
+                    boolean withFreezer)
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
     {
         this.setName(name);
         this.setBrand(brand);
@@ -39,6 +67,7 @@ public class Refrigerator extends HomeThings {
         this.withFreezer = withFreezer;
     }
 
+<<<<<<< HEAD
     public void editInfo(Refrigerator newProduct)
     {
         this.setName(newProduct.getName());
@@ -111,6 +140,29 @@ public class Refrigerator extends HomeThings {
     }
 
     // Getters and Setters ================================================
+=======
+    @Override
+    public void specialFeatures() {
+        System.out.println("Energy label: " + super.getEnergyLabel());
+        if (super.isGuarantee())
+            System.out.println("Guarantee: YES");
+        else
+            System.out.println("Guarantee: NO");
+        System.out.println("Capacity: " + this.capacity);
+        System.out.println("Kind: " + this.kind);
+        if (withFreezer)
+            System.out.println("Have freezer: YES");
+        else
+            System.out.println("Have freezer: NO");
+    }
+
+    @Override
+    public void categoryFilter() {
+
+    }
+
+    // Setters and Getters
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
 
     public int getCapacity() {
         return capacity;

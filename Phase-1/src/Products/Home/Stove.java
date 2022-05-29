@@ -1,5 +1,6 @@
 package Products.Home;
 
+<<<<<<< HEAD
 import Products.Category;
 import Products.Product.Product;
 
@@ -10,23 +11,50 @@ public class Stove extends HomeThings {
     public static ArrayList<Stove> stoves = new ArrayList<>();
     public static Category stoveCategory = new Category("Stove");
 
+=======
+public class Stove extends HomeThings {
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
     private int flames;
     private String material;
     private boolean withOven;
 
+<<<<<<< HEAD
     public Stove(String name, String brand, double price, String description,
                  String energyLabel, boolean guarantee,
                  int flames, String material, boolean withOven)
     {
+=======
+    public Stove(String name,
+                 String brand,
+                 double price,
+                 String description,
+                 String energyLabel,
+                 boolean guarantee,
+                 int flames,
+                 String material,
+                 boolean withOven) {
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
         super(name, brand, price, description, energyLabel, guarantee);
         this.flames = flames;
         this.material = material;
         this.withOven = withOven;
     }
 
+<<<<<<< HEAD
     public void editInfo(String name, String brand, double price, String description,
                          String energyLabel, boolean guarantee,
                          int flames, String material, boolean withOven)
+=======
+    public void changeInfo(String name,
+                    String brand,
+                    double price,
+                    String description,
+                    String energyLabel,
+                    boolean guarantee,
+                    int flames,
+                    String material,
+                    boolean withOven)
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
     {
         this.setName(name);
         this.setBrand(brand);
@@ -39,6 +67,7 @@ public class Stove extends HomeThings {
         this.withOven = withOven;
     }
 
+<<<<<<< HEAD
 
     public void editInfo(Stove newProduct)
     {
@@ -111,6 +140,29 @@ public class Stove extends HomeThings {
     }
 
     // Getters and Setters ================================================
+=======
+    @Override
+    public void specialFeatures() {
+        System.out.println("Energy label: " + super.getEnergyLabel());
+        if (super.isGuarantee())
+            System.out.println("Guarantee: YES");
+        else
+            System.out.println("Guarantee: NO");
+        System.out.println("Number of flames: " + this.flames);
+        System.out.println("Material: " + this.material);
+        if (withOven)
+            System.out.println("Have oven: YES");
+        else
+            System.out.println("Have oven: NO");
+    }
+
+    @Override
+    public void categoryFilter() {
+
+    }
+
+    // Setters and Getters
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
 
     public int getFlames() {
         return flames;

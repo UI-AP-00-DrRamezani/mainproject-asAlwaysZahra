@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Accounts.Admin.AdminManager;
 import Accounts.Customer.CustomerManager;
 import Accounts.Seller.Seller;
@@ -5,10 +6,15 @@ import Products.Digital.Laptop;
 import Products.Product.Product;
 import Products.ProductRequest;
 import UI.MainMenu;
+=======
+import Accounts.Admin;
+import UserInterface.Menu;
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
 
 public class Main {
     public static void main(String[] args) {
 
+<<<<<<< HEAD
         AdminManager admin = new AdminManager();
 
         Product l1 = new Laptop("lenovo1", "leno", 1200.1, "perfect1",
@@ -31,3 +37,12 @@ public class Main {
         MainMenu.mainMenu();
     }
 }
+=======
+        Admin.getAdmin("Zahra", "Masumi",
+                "myEmail@email.com", "09123456789");
+
+        Menu.firstMenu();
+
+    }
+}
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a

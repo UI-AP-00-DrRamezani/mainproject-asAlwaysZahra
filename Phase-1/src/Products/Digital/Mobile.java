@@ -1,5 +1,6 @@
 package Products.Digital;
 
+<<<<<<< HEAD
 import Products.Category;
 import Products.Product.Product;
 
@@ -25,6 +26,42 @@ public class Mobile extends Digital {
     public void editInfo (String name, String brand, double price, String description,
                          int memoryCapacity, int RAM, String OS, double weight, int size,
                          int SIMCards, int cameraQuality)
+=======
+public class Mobile extends Digital {
+    private int SIMCards;
+    private int cameraQuality;
+
+    public Mobile(String name,
+                  String brand,
+                  double price,
+                  String description,
+                  int memoryCapacity,
+                  int RAM,
+                  String OS,
+                  double weight,
+                  int size,
+                  int SIMCards,
+                  int cameraQuality) {
+        super(name, brand, price, description,
+                memoryCapacity, RAM, OS, weight, size);
+
+        this.SIMCards = SIMCards;
+        this.cameraQuality = cameraQuality;
+
+    }
+
+    public void changeInfo(String name,
+                    String brand,
+                    double price,
+                    String description,
+                    int memoryCapacity,
+                    int RAM,
+                    String OS,
+                    double weight,
+                    int size,
+                    int SIMCards,
+                    int cameraQuality)
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
     {
         this.setName(name);
         this.setBrand(brand);
@@ -39,6 +76,7 @@ public class Mobile extends Digital {
         this.cameraQuality = cameraQuality;
     }
 
+<<<<<<< HEAD
     public void editInfo(Mobile newProduct)
     {
         this.setName(newProduct.getName());
@@ -127,6 +165,25 @@ public class Mobile extends Digital {
     }
 
     // Getters and Setters ================================================
+=======
+    @Override
+    public void specialFeatures() {
+        System.out.println("Memory capacity: " + super.getMemoryCapacity() + "GB");
+        System.out.println("RAM: " + super.getRAM() + "GB");
+        System.out.println("Operating system: " + super.getOS());
+        System.out.println("Weight: " + super.getSize());
+        System.out.println("Size: " + super.getSize());
+        System.out.println("Number of SIM cards: " + this.SIMCards);
+        System.out.println("Camera quality: " + this.cameraQuality);
+    }
+
+    @Override
+    public void categoryFilter() {
+
+    }
+
+    // Setters and Getters
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
 
     public int getSIMCards() {
         return SIMCards;
@@ -143,4 +200,8 @@ public class Mobile extends Digital {
     public void setCameraQuality(int cameraQuality) {
         this.cameraQuality = cameraQuality;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a

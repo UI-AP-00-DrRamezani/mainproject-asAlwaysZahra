@@ -1,7 +1,11 @@
 package Factors;
 
+<<<<<<< HEAD
 import Accounts.Customer.Customer;
 import Products.Product.Product;
+=======
+import Products.Product;
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,6 +17,7 @@ public class SaleFactor {
     private String date;
     private double price;
     private Product product;
+<<<<<<< HEAD
     private Customer customer;
     private boolean isPosted;
 
@@ -40,6 +45,33 @@ public class SaleFactor {
     }
 
     // Getters and Setters ================================================
+=======
+    private String buyerName;
+    private boolean isPosted;
+
+    public SaleFactor(double price, Product product, String buyerName) {
+        Date now = new Date();
+        SimpleDateFormat ft = new SimpleDateFormat("yyyy/MM/dd");
+
+        this.id = ID_COUNTER++;
+        this.date = ft.format(now);
+        this.price = price;
+        this.product = product;
+        this.buyerName = buyerName;
+    }
+
+    public void printFactor() {
+        System.out.println("ID: " + this.id);
+        System.out.println("Date: " + this.date);
+        System.out.println("Price: " + this.price + "$");
+        System.out.println(product.getId() + " - " + product.getName() + " - " +
+                product.getPrice() + "$ - Buyer: " + this.buyerName);
+        System.out.println("Posted: " + this.isPosted);
+        System.out.println("================================");
+    }
+
+    // Setters and Getters
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
 
     public int getId() {
         return id;
@@ -73,12 +105,21 @@ public class SaleFactor {
         this.product = product;
     }
 
+<<<<<<< HEAD
     public Customer getCustomer() {
         return customer;
     }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+=======
+    public String getBuyerName() {
+        return buyerName;
+    }
+
+    public void setBuyerName(String buyerName) {
+        this.buyerName = buyerName;
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
     }
 
     public boolean isPosted() {

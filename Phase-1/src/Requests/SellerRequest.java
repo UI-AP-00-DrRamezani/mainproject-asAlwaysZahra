@@ -1,59 +1,41 @@
-package Accounts;
+package Requests;
 
-<<<<<<< HEAD
-public abstract class Account {
-=======
-import java.util.ArrayList;
+import Accounts.AdminPanel;
+import Enums.Status;
 
-public abstract class Account {
-    public static ArrayList<Account> allAccounts = new ArrayList<>();
->>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
+public class SellerRequest {
+    private static int ID_COUNTER = 1;
 
+    private int id;
     private String username;
     private String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
     private String password;
-<<<<<<< HEAD
-    private String accountType; // set in child classes
+    private String company;
+    private Status stat = Status.WAITING;
 
-    public Account(String username, String firstName, String lastName,
-                   String email, String phoneNumber, String password)
-=======
-    private String role;
-
-    Account(String username,
-            String firstName,
-            String lastName,
-            String email,
-            String phoneNumber,
-            String password)
->>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
+    public SellerRequest(String username,
+                  String firstName,
+                  String lastName,
+                  String email,
+                  String phoneNumber,
+                  String password,
+                  String company)
     {
+        this.id = ID_COUNTER++;
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.password = password;
-<<<<<<< HEAD
+        this.company = company;
+        AdminPanel.sellersRequests.add(this);
     }
-
-    @Override
-    public abstract String toString();
-
-    // Getters and Setters ================================================
-=======
-
-        allAccounts.add(this);
-    }
-
-    public abstract void showInfo();
-    public abstract void menu();
 
     // Setters and Getters
->>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
 
     public String getUsername() {
         return username;
@@ -103,22 +85,27 @@ public abstract class Account {
         this.password = password;
     }
 
-<<<<<<< HEAD
-    public String getAccountType() {
-        return accountType;
+    public String getCompany() {
+        return company;
     }
 
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
-    }
-}
-=======
-    public String getRole() {
-        return role;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public Status getStat() {
+        return stat;
+    }
+
+    public void setStat(Status stat) {
+        this.stat = stat;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
->>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a

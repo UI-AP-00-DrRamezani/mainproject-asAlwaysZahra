@@ -1,5 +1,6 @@
 package Products.Digital;
 
+<<<<<<< HEAD
 import Products.Category;
 import Products.Product.Product;
 
@@ -18,13 +19,47 @@ public class Laptop extends Digital {
                   String processor, boolean isGaming)
     {
         super(name, brand, price, description, memoryCapacity, RAM, OS, weight, size);
+=======
+public class Laptop extends Digital {
+    private String processor;
+    private boolean isGaming;
+
+    public Laptop(String name,
+                  String brand,
+                  double price,
+                  String description,
+                  int memoryCapacity,
+                  int RAM,
+                  String OS,
+                  double weight,
+                  int size,
+                  String processor,
+                  boolean isGaming)
+    {
+        super(name, brand, price, description,
+                memoryCapacity, RAM, OS, weight, size);
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
         this.processor = processor;
         this.isGaming = isGaming;
     }
 
+<<<<<<< HEAD
     public void editInfo(String name, String brand, double price, String description,
                          int memoryCapacity, int RAM, String OS, double weight, int size,
                          String processor, boolean isGaming)
+=======
+    public void changeInfo(String name,
+                    String brand,
+                    double price,
+                    String description,
+                    int memoryCapacity,
+                    int RAM,
+                    String OS,
+                    double weight,
+                    int size,
+                    String processor,
+                    boolean isGaming)
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
     {
         this.setName(name);
         this.setBrand(brand);
@@ -39,6 +74,7 @@ public class Laptop extends Digital {
         this.isGaming = isGaming;
     }
 
+<<<<<<< HEAD
     public void editInfo(Laptop newProduct)
     {
         this.setName(newProduct.getName());
@@ -125,6 +161,28 @@ public class Laptop extends Digital {
     }
 
     // Getters and Setters ================================================
+=======
+    @Override
+    public void specialFeatures() {
+        System.out.println("Memory capacity: " + super.getMemoryCapacity() + "GB");
+        System.out.println("RAM: " + super.getRAM() + "GB");
+        System.out.println("Operating system: " + super.getOS());
+        System.out.println("Weight: " + super.getSize()+"Kg");
+        System.out.println("Size: " + super.getSize()+"in");
+        System.out.println("Processor model: " + this.processor);
+        if (isGaming)
+            System.out.println("Gaming: YES");
+        else
+            System.out.println("Gaming: NO");
+    }
+
+    @Override
+    public void categoryFilter() {
+
+    }
+
+    // Setters and Getters
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
 
     public String getProcessor() {
         return processor;
@@ -141,4 +199,8 @@ public class Laptop extends Digital {
     public void setGaming(boolean gaming) {
         isGaming = gaming;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a

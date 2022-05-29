@@ -1,5 +1,6 @@
 package Products.Garment;
 
+<<<<<<< HEAD
 import Products.Category;
 import Products.Product.Product;
 
@@ -16,13 +17,40 @@ public class Clothe extends Garment {
     public Clothe(String name, String brand, double price, String description,
                   String country, String material, String size, ClotheKind kind)
     {
+=======
+import Enums.ClotheKind;
+
+// -------------------------------------------
+public class Clothe extends Garment {
+    private String size; // enum?????????
+    private final ClotheKind kind;
+
+    public Clothe(String name,
+                  String brand,
+                  double price,
+                  String description,
+                  String country,
+                  String material,
+                  String size,
+                  ClotheKind kind) {
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
         super(name, brand, price, description, country, material);
         this.size = size;
         this.kind = kind;
     }
 
+<<<<<<< HEAD
     public void editInfo(String name, String brand, double price, String description,
                            String country, String material, String size, ClotheKind kind)
+=======
+    public void changeInfo(String name,
+                    String brand,
+                    double price,
+                    String description,
+                    String country,
+                    String material,
+                    String size)
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
     {
         this.setName(name);
         this.setBrand(brand);
@@ -31,6 +59,7 @@ public class Clothe extends Garment {
         this.setCountry(country);
         this.setMaterial(material);
         this.size = size;
+<<<<<<< HEAD
         this.kind = kind;
     }
 
@@ -100,6 +129,24 @@ public class Clothe extends Garment {
     }
 
     // Getters and Setters ================================================
+=======
+    }
+
+    @Override
+    public void specialFeatures() {
+        System.out.println("Country: " + super.getCountry());
+        System.out.println("Material: " + super.getMaterial());
+        System.out.println("Size: " + this.size);
+        System.out.println("Kind: " + this.kind); // is in correct format string?????
+    }
+
+    @Override
+    public void categoryFilter() {
+
+    }
+
+    // Setters and Getters
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
 
     public String getSize() {
         return size;
@@ -112,8 +159,12 @@ public class Clothe extends Garment {
     public ClotheKind getKind() {
         return kind;
     }
+<<<<<<< HEAD
 
     public void setKind(ClotheKind kind) {
         this.kind = kind;
     }
 }
+=======
+}
+>>>>>>> 4ca75fff15a03808040f7f0e4912f53be1fb340a
