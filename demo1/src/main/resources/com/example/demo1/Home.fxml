@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane focusTraversable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.UI.HomeController">
+   <children>
+      <HBox alignment="CENTER" layoutX="-1.0" layoutY="56.0" prefHeight="45.0" prefWidth="1000.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <AnchorPane fx:id="pane" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="375.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;">
+               <effect>
+                  <DropShadow offsetX="5.0" offsetY="5.0">
+                     <color>
+                        <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+                     </color>
+                     <input>
+                        <DropShadow offsetX="-5.0" offsetY="-5.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </input>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <HBox layoutX="9.0" layoutY="11.0">
+                     <children>
+                        <TextField id="searchField" fx:id="searchField" prefHeight="25.0" prefWidth="312.0" promptText="Search in products" styleClass="text-field" stylesheets="@styles.css" />
+                     </children>
+                  </HBox>
+                  <AnchorPane focusTraversable="true" layoutX="333.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#searchClick" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;" styleClass="btn_hover" stylesheets="@styles.css">
+                     <effect>
+                        <DropShadow offsetX="5.0" offsetY="5.0">
+                           <color>
+                              <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+                           </color>
+                           <input>
+                              <DropShadow offsetX="-5.0" offsetY="-5.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </DropShadow>
+                           </input>
+                        </DropShadow>
+                     </effect>
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="2.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-search-50(1).png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#switchPanel" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;" styleClass="btn_hover" stylesheets="@styles.css">
+               <effect>
+                  <DropShadow offsetX="5.0" offsetY="5.0">
+                     <color>
+                        <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+                     </color>
+                     <input>
+                        <DropShadow offsetX="-5.0" offsetY="-5.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </input>
+                  </DropShadow>
+               </effect>
+               <HBox.margin>
+                  <Insets left="390.0" />
+               </HBox.margin>
+               <children>
+                  <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-user-60.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#switchCart" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;" styleClass="btn_hover" stylesheets="@styles.css">
+               <effect>
+                  <DropShadow offsetX="5.0" offsetY="5.0">
+                     <color>
+                        <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+                     </color>
+                     <input>
+                        <DropShadow offsetX="-5.0" offsetY="-5.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </input>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="5.0" layoutY="7.0" onMouseClicked="#switchCart" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-buying-60.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutY="-1.0" maxWidth="1.7976931348623157E308" prefHeight="47.0" prefWidth="1000.0" style="-fx-background-color: #c2c2c2;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="47.0" prefWidth="100.0" text="Shopea" textAlignment="CENTER" textFill="#3a3939">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <AnchorPane layoutX="56.0" layoutY="121.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="890.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="55.0">
+         <effect>
+            <DropShadow offsetX="5.0" offsetY="5.0">
+               <color>
+                  <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+               </color>
+               <input>
+                  <DropShadow offsetX="-5.0" offsetY="-5.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </input>
+            </DropShadow>
+         </effect>
+         <children>
+            <HBox layoutX="28.0" layoutY="85.0" prefHeight="194.0" prefWidth="833.0" spacing="60.0">
+               <children>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="163.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;" styleClass="btn_hover" stylesheets="@styles.css">
+                           <effect>
+                              <DropShadow offsetX="5.0" offsetY="5.0">
+                                 <color>
+                                    <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+                                 </color>
+                                 <input>
+                                    <DropShadow offsetX="-5.0" offsetY="-5.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </DropShadow>
+                                 </input>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <ImageView fx:id="digital" fitHeight="136.0" fitWidth="151.0" layoutX="13.0" layoutY="6.0" onMouseClicked="#switchProductsPage" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/digital.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
+                        <Label alignment="CENTER" prefHeight="53.0" prefWidth="86.0" text="Digital">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Roboto Light" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="163.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;" styleClass="btn_hover" stylesheets="@styles.css">
+                           <effect>
+                              <DropShadow offsetX="5.0" offsetY="5.0">
+                                 <color>
+                                    <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+                                 </color>
+                                 <input>
+                                    <DropShadow offsetX="-5.0" offsetY="-5.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </DropShadow>
+                                 </input>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <ImageView fx:id="food" fitHeight="136.0" fitWidth="151.0" layoutX="13.0" layoutY="6.0" onMouseClicked="#switchProductsPage" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/food.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
+                        <Label alignment="CENTER" prefHeight="53.0" prefWidth="86.0" text="Food">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Roboto Light" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="163.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;" styleClass="btn_hover" stylesheets="@styles.css">
+                           <effect>
+                              <DropShadow offsetX="5.0" offsetY="5.0">
+                                 <color>
+                                    <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+                                 </color>
+                                 <input>
+                                    <DropShadow offsetX="-5.0" offsetY="-5.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </DropShadow>
+                                 </input>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <ImageView fx:id="garment" fitHeight="136.0" fitWidth="151.0" layoutX="13.0" layoutY="6.0" onMouseClicked="#switchProductsPage" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/garment.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
+                        <Label alignment="CENTER" prefHeight="53.0" prefWidth="111.0" text="Garment">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Roboto Light" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="163.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;" styleClass="btn_hover" stylesheets="@styles.css">
+                           <effect>
+                              <DropShadow offsetX="5.0" offsetY="5.0">
+                                 <color>
+                                    <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+                                 </color>
+                                 <input>
+                                    <DropShadow offsetX="-5.0" offsetY="-5.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </DropShadow>
+                                 </input>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <ImageView fx:id="home" fitHeight="136.0" fitWidth="151.0" layoutX="13.0" layoutY="6.0" onMouseClicked="#switchProductsPage" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/home.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
+                        <Label alignment="CENTER" prefHeight="53.0" prefWidth="86.0" text="Home">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Roboto Light" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Label alignment="CENTER" layoutX="28.0" layoutY="13.0" prefHeight="56.0" prefWidth="149.0" text="Categories" textAlignment="CENTER" textFill="#3a3939">
+               <font>
+                  <Font name="Roboto Condensed" size="34.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="24.0" layoutY="285.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="177.0" prefWidth="839.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;">
+               <effect>
+                  <DropShadow offsetX="5.0" offsetY="5.0">
+                     <color>
+                        <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+                     </color>
+                     <input>
+                        <DropShadow offsetX="-5.0" offsetY="-5.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </input>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <Label alignment="CENTER" layoutX="13.0" layoutY="12.0" prefHeight="56.0" prefWidth="225.0" text="Filter Products" textAlignment="CENTER" textFill="#3a3939">
+                     <font>
+                        <Font name="Roboto Condensed" size="34.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="27.0" layoutY="84.0" spacing="80.0">
+                     <children>
+                        <Label alignment="CENTER" onMouseClicked="#switchFilterByPrice" prefHeight="53.0" prefWidth="102.0" styleClass="btn_hover_text" stylesheets="@styles.css" text="By Price">
+                           <font>
+                              <Font name="Roboto Light" size="24.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label alignment="CENTER" onMouseClicked="#switchFilterByBrand" prefHeight="53.0" prefWidth="102.0" styleClass="btn_hover_text" stylesheets="@styles.css" text="By Brand">
+                           <font>
+                              <Font name="Roboto Light" size="24.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label alignment="CENTER" onMouseClicked="#switchFilterByAvailability" prefHeight="53.0" prefWidth="186.0" styleClass="btn_hover_text" stylesheets="@styles.css" text="Available Goods">
+                           <font>
+                              <Font name="Roboto Light" size="24.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label alignment="CENTER" onMouseClicked="#switchFilterByPopularity" prefHeight="53.0" prefWidth="148.0" styleClass="btn_hover_text" stylesheets="@styles.css" text="By Popularity">
+                           <font>
+                              <Font name="Roboto Light" size="24.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

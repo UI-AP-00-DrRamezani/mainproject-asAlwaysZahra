@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1000.0" style="-fx-background-color: #EBECF0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.UI.SignupController">
+   <children>
+      <VBox fx:id="mainVBox" alignment="CENTER" layoutX="92.0" layoutY="56.0" prefHeight="514.0" prefWidth="836.0" spacing="25.0" AnchorPane.leftAnchor="92.0" AnchorPane.rightAnchor="72.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="48.0" prefWidth="167.0" text="Sign Up" textAlignment="CENTER" textFill="#babecc">
+               <font>
+                  <Font name="Roboto Light" size="46.0" />
+               </font>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" offsetX="1.0" offsetY="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="885.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="58.0" prefWidth="353.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="101.0" text="First Name">
+                           <font>
+                              <Font name="Lato-Light" size="20.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txt_fname" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="239.0" promptText="first name" style="-fx-background-color: #EBECF0; -fx-background-radius: 16px;">
+                           <font>
+                              <Font name="Lato-Light" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow offsetX="2.0" offsetY="2.0">
+                                 <color>
+                                    <Color red="0.729411780834198" green="0.7450980544090271" blue="0.800000011920929" />
+                                 </color>
+                                 <input>
+                                    <InnerShadow blurType="GAUSSIAN" offsetX="-5.0" offsetY="-5.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </InnerShadow>
+                                 </input>
+                              </InnerShadow>
+                           </effect>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="390.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="102.0" text="Last Name">
+                           <font>
+                              <Font name="Lato-Light" size="20.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txt_lname" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="239.0" promptText="last name" style="-fx-background-color: #EBECF0; -fx-background-radius: 16px;">
+                           <font>
+                              <Font name="Lato-Light" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow offsetX="2.0" offsetY="2.0">
+                                 <color>
+                                    <Color red="0.729411780834198" green="0.7450980544090271" blue="0.800000011920929" />
+                                 </color>
+                                 <input>
+                                    <InnerShadow blurType="GAUSSIAN" offsetX="-5.0" offsetY="-5.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </InnerShadow>
+                                 </input>
+                              </InnerShadow>
+                           </effect>
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="90.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="885.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="361.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="60.0" text="Email">
+                           <font>
+                              <Font name="Lato-Light" size="20.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txt_email" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="236.0" promptText="email" style="-fx-background-color: #EBECF0; -fx-background-radius: 16px;">
+                           <font>
+                              <Font name="Lato-Light" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow offsetX="2.0" offsetY="2.0">
+                                 <color>
+                                    <Color red="0.729411780834198" green="0.7450980544090271" blue="0.800000011920929" />
+                                 </color>
+                                 <input>
+                                    <InnerShadow blurType="GAUSSIAN" offsetX="-5.0" offsetY="-5.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </InnerShadow>
+                                 </input>
+                              </InnerShadow>
+                           </effect>
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="398.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="133.0" text="Phone Number">
+                           <font>
+                              <Font name="Lato-Light" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="txt_phone" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="239.0" promptText="phone number" style="-fx-background-color: #EBECF0; -fx-background-radius: 16px;">
+                           <font>
+                              <Font name="Lato-Light" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow offsetX="2.0" offsetY="2.0">
+                                 <color>
+                                    <Color red="0.729411780834198" green="0.7450980544090271" blue="0.800000011920929" />
+                                 </color>
+                                 <input>
+                                    <InnerShadow blurType="GAUSSIAN" offsetX="-5.0" offsetY="-5.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </InnerShadow>
+                                 </input>
+                              </InnerShadow>
+                           </effect>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="80.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="BOTTOM_LEFT" prefHeight="58.0" prefWidth="885.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="368.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="105.0" text="Username">
+                           <font>
+                              <Font name="Lato-Light" size="20.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txt_username" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="239.0" promptText="username" style="-fx-background-color: #EBECF0; -fx-background-radius: 16px;">
+                           <font>
+                              <Font name="Lato-Light" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow offsetX="2.0" offsetY="2.0">
+                                 <color>
+                                    <Color red="0.729411780834198" green="0.7450980544090271" blue="0.800000011920929" />
+                                 </color>
+                                 <input>
+                                    <InnerShadow blurType="GAUSSIAN" offsetX="-5.0" offsetY="-5.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </InnerShadow>
+                                 </input>
+                              </InnerShadow>
+                           </effect>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="421.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="122.0" text="Password">
+                           <font>
+                              <Font name="Lato-Light" size="20.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txt_password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="239.0" promptText="password" style="-fx-background-color: #EBECF0; -fx-background-radius: 16px;">
+                           <font>
+                              <Font name="Lato-Light" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow offsetX="2.0" offsetY="2.0">
+                                 <color>
+                                    <Color red="0.729411780834198" green="0.7450980544090271" blue="0.800000011920929" />
+                                 </color>
+                                 <input>
+                                    <InnerShadow blurType="GAUSSIAN" offsetX="-5.0" offsetY="-5.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </InnerShadow>
+                                 </input>
+                              </InnerShadow>
+                           </effect>
+                           <HBox.margin>
+                              <Insets left="25.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="90.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="836.0">
+               <children>
+                  <Label prefHeight="26.0" prefWidth="201.0" text="Select Account Type :">
+                     <font>
+                        <Font name="Lato-Light" size="20.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="customerType" mnemonicParsing="false" onAction="#getCredit" styleClass="rbtn_selected" stylesheets="@styles.css" text="Customer">
+                     <font>
+                        <Font name="Lato-Light" size="18.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="accountType" />
+                     </toggleGroup>
+                     <HBox.margin>
+                        <Insets left="100.0" />
+                     </HBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="SellerType" mnemonicParsing="false" onAction="#getCompany" styleClass="rbtn_selected" stylesheets="@styles.css" text="Seller" toggleGroup="$accountType">
+                     <font>
+                        <Font name="Lato-Light" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="100.0" />
+                     </HBox.margin>
+                  </RadioButton>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <Button fx:id="btn_signup" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#signup" prefHeight="48.0" prefWidth="164.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 32;" styleClass="btn_hover" stylesheets="@styles.css" text="S I G N   U P" textAlignment="CENTER" textFill="#9954c0">
+               <font>
+                  <Font name="Lato-Light" size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow offsetX="-5.0" offsetY="-5.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                     <input>
+                        <DropShadow offsetX="5.0" offsetY="5.0">
+                           <color>
+                              <Color red="0.729411780834198" green="0.7450980544090271" blue="0.800000011920929" />
+                           </color>
+                        </DropShadow>
+                     </input>
+                  </DropShadow>
+               </effect>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <HBox fx:id="hbox_company" alignment="CENTER_LEFT" layoutX="36.0" layoutY="78.0" prefHeight="58.0" prefWidth="353.0" visible="false">
+         <children>
+            <Label fx:id="lbl_company" prefHeight="26.0" prefWidth="87.0" text="Company">
+               <font>
+                  <Font name="Lato-Light" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txt_company" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="239.0" promptText="company" style="-fx-background-color: #EBECF0; -fx-background-radius: 16px;">
+               <font>
+                  <Font name="Lato-Light" size="18.0" />
+               </font>
+               <effect>
+                  <InnerShadow offsetX="2.0" offsetY="2.0">
+                     <color>
+                        <Color red="0.729411780834198" green="0.7450980544090271" blue="0.800000011920929" />
+                     </color>
+                     <input>
+                        <InnerShadow blurType="GAUSSIAN" offsetX="-5.0" offsetY="-5.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </InnerShadow>
+                     </input>
+                  </InnerShadow>
+               </effect>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox fx:id="hbox_credit" alignment="CENTER_LEFT" layoutX="21.0" layoutY="20.0" prefHeight="58.0" prefWidth="389.0" visible="false">
+         <children>
+            <Label fx:id="lbl_credit" prefHeight="26.0" prefWidth="112.0" text="Initial Credit">
+               <font>
+                  <Font name="Lato-Light" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txt_credit" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="239.0" promptText="credit" style="-fx-background-color: #EBECF0; -fx-background-radius: 16px;">
+               <font>
+                  <Font name="Lato-Light" size="18.0" />
+               </font>
+               <effect>
+                  <InnerShadow offsetX="2.0" offsetY="2.0">
+                     <color>
+                        <Color red="0.729411780834198" green="0.7450980544090271" blue="0.800000011920929" />
+                     </color>
+                     <input>
+                        <InnerShadow blurType="GAUSSIAN" offsetX="-5.0" offsetY="-5.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </InnerShadow>
+                     </input>
+                  </InnerShadow>
+               </effect>
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <Button layoutX="16.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#back" prefHeight="43.0" prefWidth="45.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 32;" styleClass="btn_hover" stylesheets="@styles.css" textAlignment="CENTER" textFill="#9954c0">
+         <font>
+            <Font name="Lato-Light" size="20.0" />
+         </font>
+         <effect>
+            <DropShadow offsetX="-5.0" offsetY="-5.0">
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+               <input>
+                  <DropShadow offsetX="5.0" offsetY="5.0">
+                     <color>
+                        <Color red="0.729411780834198" green="0.7450980544090271" blue="0.800000011920929" />
+                     </color>
+                  </DropShadow>
+               </input>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ImageView fitHeight="42.0" fitWidth="35.0" layoutX="20.0" layoutY="21.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/back.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+   </children>
+</AnchorPane>

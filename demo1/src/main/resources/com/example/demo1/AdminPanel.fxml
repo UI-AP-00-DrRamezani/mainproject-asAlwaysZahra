@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane focusTraversable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.UI.AdminPanelController">
+    <children>
+        <Label alignment="CENTER" layoutX="418.0" layoutY="63.0" text="Admin Panel" textAlignment="CENTER" textFill="#9954c0">
+            <font>
+                <Font name="Lato-Light" size="30.0" />
+            </font>
+        </Label>
+        <HBox alignment="CENTER" layoutY="-1.0" maxWidth="1.7976931348623157E308" prefHeight="47.0" prefWidth="1000.0" style="-fx-background-color: #c2c2c2;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Label alignment="CENTER" prefHeight="47.0" prefWidth="100.0" text="Shopea" textAlignment="CENTER" textFill="#3a3939">
+                    <font>
+                        <Font size="26.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <AnchorPane layoutX="52.0" layoutY="122.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="890.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="58.0">
+            <effect>
+                <DropShadow offsetX="5.0" offsetY="5.0">
+                    <color>
+                        <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+                    </color>
+                    <input>
+                        <DropShadow offsetX="-5.0" offsetY="-5.0">
+                            <color>
+                                <Color red="1.0" green="1.0" blue="1.0" />
+                            </color>
+                        </DropShadow>
+                    </input>
+                </DropShadow>
+            </effect>
+            <children>
+                <HBox layoutX="38.0" layoutY="34.0" prefHeight="399.0" prefWidth="833.0" spacing="40.0">
+                    <children>
+                        <VBox alignment="CENTER">
+                            <children>
+                                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="306.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;">
+                                    <effect>
+                                        <DropShadow offsetX="5.0" offsetY="5.0">
+                                            <color>
+                                                <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+                                            </color>
+                                            <input>
+                                                <DropShadow offsetX="-5.0" offsetY="-5.0">
+                                                    <color>
+                                                        <Color red="1.0" green="1.0" blue="1.0" />
+                                                    </color>
+                                                </DropShadow>
+                                            </input>
+                                        </DropShadow>
+                                    </effect>
+                                    <children>
+                                        <Label fx:id="lbl_welcome" alignment="CENTER" layoutX="10.0" layoutY="9.0" prefHeight="56.0" prefWidth="280.0" text="Welcome dear " textAlignment="CENTER" textFill="#3a3939">
+                                            <font>
+                                                <Font name="Roboto Condensed" size="24.0" />
+                                            </font>
+                                        </Label>
+                                        <VBox layoutX="17.0" layoutY="66.0" spacing="20.0">
+                                            <children>
+                                                <Label prefHeight="50.0" prefWidth="100.0" text="Name:">
+                                                    <font>
+                                                        <Font name="Lato-Light" size="20.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label prefHeight="50.0" prefWidth="100.0" text="Email:">
+                                                    <font>
+                                                        <Font name="Lato-Light" size="20.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label prefHeight="50.0" prefWidth="100.0" text="Phone:">
+                                                    <font>
+                                                        <Font name="Lato-Light" size="20.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label prefHeight="50.0" prefWidth="100.0" text="Username:">
+                                                    <font>
+                                                        <Font name="Lato-Light" size="20.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label prefHeight="50.0" prefWidth="100.0" text="Password:">
+                                                    <font>
+                                                        <Font name="Lato-Light" size="20.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <VBox layoutX="125.0" layoutY="66.0" prefHeight="330.0" prefWidth="175.0" spacing="20.0">
+                                            <children>
+                                                <Label fx:id="lbl_name" prefHeight="50.0" prefWidth="170.0" text=" ">
+                                                    <font>
+                                                        <Font name="Lato-Light" size="20.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="lbl_email" prefHeight="50.0" prefWidth="170.0" text=" ">
+                                                    <font>
+                                                        <Font name="Lato-Light" size="20.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="lbl_phone" prefHeight="50.0" prefWidth="170.0">
+                                                    <font>
+                                                        <Font name="Lato-Light" size="20.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="lbl_username" prefHeight="50.0" prefWidth="170.0">
+                                                    <font>
+                                                        <Font name="Lato-Light" size="20.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="lbl_password" prefHeight="50.0" prefWidth="170.0">
+                                                    <font>
+                                                        <Font name="Lato-Light" size="20.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="272.0" layoutY="11.0" onMouseClicked="#switchEditInfo" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/icons8-edit-100.png" />
+                                            </image>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </ImageView>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </VBox>
+                        <GridPane alignment="CENTER" prefHeight="421.0" prefWidth="478.0">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;" styleClass="btn_hover" stylesheets="@styles.css" GridPane.columnIndex="1">
+                                    <effect>
+                                        <DropShadow offsetX="5.0" offsetY="5.0">
+                                            <color>
+                                                <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+                                            </color>
+                                            <input>
+                                                <DropShadow offsetX="-5.0" offsetY="-5.0">
+                                                    <color>
+                                                        <Color red="1.0" green="1.0" blue="1.0" />
+                                                    </color>
+                                                </DropShadow>
+                                            </input>
+                                        </DropShadow>
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                    <children>
+                                        <Label alignment="CENTER" layoutX="6.0" layoutY="5.0" prefHeight="91.0" prefWidth="88.0" styleClass="btn_hover_text" text="Remove User" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Roboto Condensed" size="17.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#logout" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;" styleClass="btn_hover" stylesheets="@styles.css" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                    <effect>
+                                        <DropShadow offsetX="5.0" offsetY="5.0">
+                                            <color>
+                                                <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+                                            </color>
+                                            <input>
+                                                <DropShadow offsetX="-5.0" offsetY="-5.0">
+                                                    <color>
+                                                        <Color red="1.0" green="1.0" blue="1.0" />
+                                                    </color>
+                                                </DropShadow>
+                                            </input>
+                                        </DropShadow>
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                    <children>
+                                        <ImageView fitHeight="40.0" fitWidth="50.0" layoutX="32.0" layoutY="31.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/icons8-logout-96.png" />
+                                            </image>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </ImageView>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;" styleClass="btn_hover" stylesheets="@styles.css" GridPane.columnIndex="2">
+                                    <effect>
+                                        <DropShadow offsetX="5.0" offsetY="5.0">
+                                            <color>
+                                                <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+                                            </color>
+                                            <input>
+                                                <DropShadow offsetX="-5.0" offsetY="-5.0">
+                                                    <color>
+                                                        <Color red="1.0" green="1.0" blue="1.0" />
+                                                    </color>
+                                                </DropShadow>
+                                            </input>
+                                        </DropShadow>
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                    <children>
+                                        <Label alignment="CENTER" layoutX="6.0" layoutY="6.0" prefHeight="90.0" prefWidth="89.0" styleClass="btn_hover_text" text="Requests" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Roboto Condensed" size="18.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;" styleClass="btn_hover" stylesheets="@styles.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <effect>
+                                        <DropShadow offsetX="5.0" offsetY="5.0">
+                                            <color>
+                                                <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+                                            </color>
+                                            <input>
+                                                <DropShadow offsetX="-5.0" offsetY="-5.0">
+                                                    <color>
+                                                        <Color red="1.0" green="1.0" blue="1.0" />
+                                                    </color>
+                                                </DropShadow>
+                                            </input>
+                                        </DropShadow>
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                    <children>
+                                        <Label alignment="CENTER" layoutX="4.0" layoutY="5.0" prefHeight="90.0" prefWidth="92.0" styleClass="btn_hover_text" text="Categories" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Roboto Condensed" size="18.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;" styleClass="btn_hover" stylesheets="@styles.css">
+                                    <effect>
+                                        <DropShadow offsetX="5.0" offsetY="5.0">
+                                            <color>
+                                                <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+                                            </color>
+                                            <input>
+                                                <DropShadow offsetX="-5.0" offsetY="-5.0">
+                                                    <color>
+                                                        <Color red="1.0" green="1.0" blue="1.0" />
+                                                    </color>
+                                                </DropShadow>
+                                            </input>
+                                        </DropShadow>
+                                    </effect>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                    <children>
+                                        <Label alignment="CENTER" layoutX="5.0" layoutY="6.0" prefHeight="90.0" prefWidth="90.0" styleClass="btn_hover_text" text="All Users" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Roboto Condensed" size="18.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 8px;" styleClass="btn_hover" stylesheets="@styles.css" GridPane.rowIndex="1">
+                           <effect>
+                              <DropShadow offsetX="5.0" offsetY="5.0">
+                                 <color>
+                                    <Color red="0.7647058963775635" green="0.7843137383460999" blue="0.8588235378265381" opacity="0.8899999856948853" />
+                                 </color>
+                                 <input>
+                                    <DropShadow offsetX="-5.0" offsetY="-5.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </DropShadow>
+                                 </input>
+                              </DropShadow>
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <children>
+                              <Label alignment="CENTER" layoutX="5.0" layoutY="5.0" prefHeight="89.0" prefWidth="90.0" styleClass="btn_hover_text" text="Comments" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Roboto Condensed" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                            </children>
+                        </GridPane>
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
+        <Button layoutX="22.0" layoutY="59.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#back" prefHeight="43.0" prefWidth="45.0" style="-fx-background-color: #EBECF0; -fx-background-radius: 32;" styleClass="btn_hover" stylesheets="@styles.css" textAlignment="CENTER" textFill="#9954c0">
+            <font>
+                <Font name="Lato-Light" size="20.0" />
+            </font>
+            <effect>
+                <DropShadow offsetX="-5.0" offsetY="-5.0">
+                    <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </color>
+                    <input>
+                        <DropShadow offsetX="5.0" offsetY="5.0">
+                            <color>
+                                <Color red="0.729411780834198" green="0.7450980544090271" blue="0.800000011920929" />
+                            </color>
+                        </DropShadow>
+                    </input>
+                </DropShadow>
+            </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </Button>
+        <ImageView fitHeight="42.0" fitWidth="35.0" layoutX="26.0" layoutY="65.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true" styleClass="btn_hover">
+            <image>
+                <Image url="@img/back.png" />
+            </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </ImageView>
+    </children>
+</AnchorPane>
